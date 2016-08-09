@@ -16,9 +16,8 @@ Contents:
 Indices and tables
 ==================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+
+* :ref:`test`
 
 Here is a code snipped::
 rm -rf *
