@@ -21,6 +21,8 @@ Indices and tables
 * :ref:`search`
 
 Here is a code snipped::
+rm -rf *
 
-``rm -rf *``
+
+
 
