@@ -10,6 +10,7 @@ Contents:
 
 .. toctree::
    :maxdepth: 2
+   :hidden:
 
    test
 
@@ -17,9 +18,6 @@ Contents:
 
 Indices and tables
 ==================
-
-
-* :ref:`test`
 
 Here is a code snipped::
 rm -rf *
