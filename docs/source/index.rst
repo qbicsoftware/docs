@@ -20,7 +20,7 @@ Indices and tables
 * :ref:`modindex`
 * :ref:`search`
 
-Here is a code snipped:
+Here is a code snipped::
 
 ``rm -rf *``
 
