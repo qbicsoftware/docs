@@ -13,6 +13,7 @@ Contents:
    :hidden:
 
    test
+   example
 
 
 
