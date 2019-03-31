@@ -21,9 +21,8 @@ branches:
 # added to make logs look cleaner, crisper, certified fresh
 before_install: unset _JAVA_OPTIONS 
 
-# we need javapshinx to generate javadocs
-install: 
-  - pip install javasphinx
+# no extra packages required
+install: true
 
 # keeping complicated scripts separate is not much, but it's honest work
 script: generate-javadocs.py -r submodules.txt -t .index.rst.template -o docs -b $TRAVIS_BRANCH

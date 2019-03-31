@@ -1,2 +1,2 @@
-# docs
-Documentation about all the things that have been done at QBiC
+# QBiC Documentation
+Documentation (mostly technical) about all the things that have been done at QBiC.
