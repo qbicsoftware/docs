@@ -1,0 +1,26 @@
+{
+    "folder_name": "generated",
+    "theme": "jekyll-theme-midnight",
+    "repos": {
+        "foo-repo": {
+            "development": "foo",
+            "2.0.0": "foobar",
+            "1.1.0": "foobar"
+        },
+        "bar-repo": {
+            "development": "foo",
+            "1.0.1": "foobar",
+            "1.0.0": "foobar"
+        },
+        "foobar-repo": {
+            "1.0.0": "foobar",
+            "2.0.0": "foobar"
+        },
+        "barfoo-repo": {
+            "development": "foobar"
+        },
+        "nasty-repo": {
+
+        }
+    }
+}
