@@ -1,16 +1,25 @@
 #!/usr/bin/env python
 
 # Script to automatically generate a README.md file containing links to all GitHub pages
+<<<<<<< HEAD
 # containing documentation. The following assumptions are made:
 # 
 #  * cookiecutter has been installed and is available as a Python module.
 #  * this repo has a branch matching the --pages-branch command-line option.
+=======
+# containing documentation. It is assummed that cookiecutter has been installed and is
+# available as a Python module.
+>>>>>>> [skip travis] first changes
 #
 # This script injects extra context using cookiecutter's API to provide the most recent
 # links to generated reports.
 
+<<<<<<< HEAD
 import tempfile, argparse, os, subprocess, sys, re, traceback, shutil
 from cookiecutter.main import cookiecutter
+=======
+import cookiecutter, tempfile, argparse, os, subprocess, sys
+>>>>>>> [skip travis] first changes
 from datetime import date
 
 # location of the template that cookiecutter will use
@@ -23,6 +32,11 @@ REPOSITORIES_FILE = 'repos.txt'
 # credentials are given via environment variables
 USERNAME_ENV_VARIABLE_NAME = 'REPORTS_GITHUB_USERNAME'
 TOKEN_ENV_VARIABLE_NAME = 'REPORTS_GITHUB_ACCESS_TOKEN'
+<<<<<<< HEAD
+=======
+# folder where submodules reside
+SUBMODULES_DIR = 'submodules'
+>>>>>>> [skip travis] first changes
 # base directory where reports reside on gh-pages of each of the submodules
 BASE_REPORT_DIR = 'reports'
 # value for cookiecutter.folder_name
@@ -41,16 +55,24 @@ def main():
         help='Name of the directory containing development (SNAPSHOT) reports.')
     parser.add_argument('-d', '--dry-run', action='store_true',
         help='Execute in dry run mode. No changes to this repo will be done in dry run mode.')
+<<<<<<< HEAD
     parser.add_argument('--skip-cleanup', action='store_true',
         help='If used, temporary folders used as working directories will not be removed.')
+=======
+    parser.add_argument('-m', '--submodules-dir', default=SUBMODULES_DIR,
+        help='Directory containing all submodules.')
+>>>>>>> [skip travis] first changes
     parser.add_argument('-u', '--username-var-name', default=USERNAME_ENV_VARIABLE_NAME,
         help='Name of the environment variable holding the GitHub username used to push changes in reports.')
     parser.add_argument('-a', '--access-token-var-name', default=TOKEN_ENV_VARIABLE_NAME,
         help='Name of the environment variable holding the GitHub personal access token used to push changes in reports.')
     parser.add_argument('-p', '--pages-branch', default='gh-pages',
         help='Branch holding the documentation. This applies both for the individual projects and for the summary (this repo).')
+<<<<<<< HEAD
     parser.add_argument('-o', '--organization', default='qbicsoftware',
         help='Name of the organization (or username) for which documentation will be built. All repos should be part of this organization (or username).')
+=======
+>>>>>>> [skip travis] first changes
     parser.add_argument('-b', '--base-report-dir', default=BASE_REPORT_DIR,
         help='Base directory where reports reside on each of the submodules.')
     parser.add_argument('repo_slug', 
