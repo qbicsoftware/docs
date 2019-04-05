@@ -7,7 +7,7 @@
 # This script injects extra context using cookiecutter's API to provide the most recent
 # links to generated reports.
 
-import cookiecutter, tempfile, argparse, os, subprocess, sys
+import cookiecutter, tempfile, argparse, os, subprocess, sys, re
 from datetime import date
 
 # location of the template that cookiecutter will use
@@ -29,6 +29,7 @@ GENERATED_DIR = 'generated'
 # compiled regex to match files that should not be deleted when cleaning the working folder (in gh-pages)
 UNTOUCHABLE_FILES_MATCHER = re.compile('^\.git.*')
 
+
 # parses arguments
 def main():
     parser = argparse.ArgumentParser(description='QBiC Javadoc Generator.', prog='generate-javadocs.py', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -40,39 +41,55 @@ def main():
         help='Name of the directory containing development (SNAPSHOT) reports.')
     parser.add_argument('-d', '--dry-run', action='store_true',
         help='Execute in dry run mode. No changes to this repo will be done in dry run mode.')
+    parser.add_argument('--skip-cleanup', action='store_true',
+        help='If used, temporary folders used as working directories will not be removed.')
     parser.add_argument('-m', '--submodules-dir', default=SUBMODULES_DIR,
         help='Directory containing all submodules.')
     parser.add_argument('-u', '--username-var-name', default=USERNAME_ENV_VARIABLE_NAME,
         help='Name of the environment variable holding the GitHub username used to push changes in reports.')
     parser.add_argument('-a', '--access-token-var-name', default=TOKEN_ENV_VARIABLE_NAME,
         help='Name of the environment variable holding the GitHub personal access token used to push changes in reports.')
+    parser.add_argument('--danger-debug', action='store_true',
+        help='Prints out potentially sensitive debug information, such as credentials. Never use in remote environments.')
     parser.add_argument('-p', '--pages-branch', default='gh-pages',
         help='Branch holding the documentation. This applies both for the individual projects and for the summary (this repo).')
     parser.add_argument('-b', '--base-report-dir', default=BASE_REPORT_DIR,
         help='Base directory where reports reside on each of the submodules.')
     parser.add_argument('repo_slug', 
         help='Slug of this repository, e.g., qbicsoftware/docs.')
+    parser.add_argument('branch', 
+        help='Branch where changes done on the submodules will be performed.')
     parser.add_argument('commit_message', nargs='+', 
         help='Message(s) to use when committing changes.')
     args = parser.parse_args()
 
+    # just in case
+    if args.danger_debug:
+        if 'CI' in os.environ or 'TRAVIS' in os.environ or 'CONTINUOUS_INTEGRATION' in os.environ:
+            print('WARNING: it seems that you are executing this script on Travis CI. Running with --danger-debug is recommended against. Stopping.')
+            exit(1)
+
     # read contents of the submodules (repos) file into a list
-    submodules = parse_submodules_file(args.submodules_file)
+    submodules = parse_submodules_file(args.repos_file)
 
     # since this will run on Travis, we cannot assume that we can change the current local repo without breaking anything
     # the safest way would be to clone this same repository on a temporary folder and leave the current local repo alone
     working_dir = tempfile.mkdtemp()
     custom_remote = build_remote(args)
     clone_repo(args.repo_slug, working_dir, custom_remote)
-    # reports are available only in a specific branch
-    checkout_pages_branch(working_dir, args)
-    # make sure to start with an empty repo
-    remove_unneeded_files(working_dir, args)
 
-    # for each repo, make sure that it has been added as a submodule, then
-    # update each submodule and generate javadocs for it
+    # we have to update modules and commit to development, NOT to gh-pages!
+    # for each repo, make sure that it has been added as a submodule
+    checkout_branch(working_dir, args.branch)
     for submodule in submodules:
         update_submodule(working_dir, submodule, args)
+    # push changes
+    push_upstream(working_dir, args.branch, args)
+
+    # reports are available only in a specific branch
+    checkout_branch(working_dir, args.pages_branch)
+    # make sure to start with an empty repo
+    remove_unneeded_files(working_dir, args)
 
     # prepare to use cookiecutter
     # all modules are present, we have to build a dictionary with a structure similar to cookiecutter.json
@@ -85,13 +102,16 @@ def main():
     for f in os.listdir(os.path.join(cookiecutter_output_dir, GENERATED_DIR)):
         os.shutil.move(os.path.join(cookiecutter_output_dir, GENERATED_DIR, f), working_dir)
 
-    # push changes upstream
-    push_upstream(working_dir, args)
+    # push changes upstream to gh-pages
+    push_upstream(working_dir, args.pages_branch, args)
 
     # clean up
-    print('Removing working folders {}, {}'.format(working_dir, cookiecutter_output_dir))
-    os.shutil.rmtree(working_dir)
-    os.shutil.rmtree(cookiecutter_output_dir)
+    if not args.skip_cleanup:
+        print('Removing working folders {}, {}'.format(working_dir, cookiecutter_output_dir))
+        os.shutil.rmtree(working_dir)
+        os.shutil.rmtree(cookiecutter_output_dir)
+    else:
+        print('Working folders {}, {} were not removed (skipping cleanup)'.format(working_dir, cookiecutter_output_dir))
 
 
 # Parses the file found at the given path, returns
@@ -107,7 +127,7 @@ def parse_submodules_file(submodules_file):
             if not line or line.startswith('#'):
                 continue
             submodule_names.append(line)
-            print('  Found submodule {}'.format(line))
+            print('    Found submodule {}'.format(line))
     return submodule_names
 
 
@@ -122,16 +142,16 @@ def clone_repo(repo_slug, working_dir, custom_remote):
     execute(['git', 'clone', custom_remote, working_dir], 'Could not clone {} in directory {}'.format(repo_slug, working_dir))
 
 
-# Checks out the branch where reports reside (gh-pages)
-def checkout_pages_branch(working_dir, args):
-    # we need to add the gh-pages branch if it doesn't exist (git checkout -b gh-pages),
-    # but if gh-pages already exists, we need to checkout (git checkout gh-pages), luckily, 
-    # "git checkout -b branch" fails if branch already exists
-    print('Changing to branch {}'.format(args.pages_branch))
+# Checks out a git the given git branch using working_dir as a local repo
+def checkout_branch(working_dir, branch):
+    # we need to add the branch if it doesn't exist (git checkout -b branch),
+    # but if the branch already exists, we need to checkout (git checkout branch), luckily, 
+    # "git checkout -b branch" fails if branch already exists!
+    print('Changing to branch {}'.format(branch))
     try:
-        execute(['git', '-C', working_dir, 'checkout', args.pages_branch])
+        execute(['git', '-C', working_dir, 'checkout', branch])
     except:
-        execute(['git', '-C', working_dir, 'checkout', '-b', args.pages_branch], 'Could not create branch {}'.format(args.pages_branch))
+        execute(['git', '-C', working_dir, 'checkout', '-b', branch], 'Could not create branch {}'.format(branch))
 
 
 # Goes through the all files/folders (non-recursively) and deletes them using 'git rm'.
@@ -157,15 +177,19 @@ def update_submodule(working_dir, submodule_name, args):
     submodule_dir = get_submodule_dir(submodule_name, args)
     print('Updating submodule {}'.format(submodule_dir))
     # force-add submodules
-    print('  force-adding...')
+    print('    force-adding...')    
     execute(
-        ['git', '-C', working_dir, 'submodule', 'add', '--force', '-b', args.pages_branch, '../{}'.format(submodule_name), submodule_dir],
-        'Could not add submodule {}.'.format(submodule_name))    
-    # update submodule
-    print('  updating...')
-    execute(
-        ['git', '-C', working_dir, 'submodule', 'update', '--remote', submodule_dir], 
-        'Could not update submodule {}.'.format(submodule_name))
+        ['git', '-C', working_dir, 'submodule', 'add', '--force', '../{}'.format(submodule_name), submodule_dir],
+        'Could not add submodule {}.'.format(submodule_name))
+    # we are interested in a particular branch (args.pages_branch); if this branch doesn't exist on the submodule,
+    # we cannot simply use "-b <branch>" because the command will fail, so we will need to first check if the 
+    # submodule has said branch and take it from there
+    try:
+        print('    checking out branch {}...'.format(args.pages_branch))
+        execute(
+            ['git', '-C', os.path.join(working_dir, submodule_name), 'checkout', args.pages_branch])
+    except:
+        print('    WARNING: submodule {} does not yet have a branch named {}'.format(submodule_name, args.pages_branch))
 
 
 # given a submodule, returns the path of the folder, relative to root
@@ -196,7 +220,7 @@ def build_extra_context(working_dir, submodules, args):
 
 
 # Adds, commits and pushes changes
-def push_upstream(working_dir, args):
+def push_upstream(working_dir, branch, args):
     if args.dry_run:
         print('(running in dry run mode) Local/remote repository will not be modified')
     else:
@@ -212,13 +236,12 @@ def push_upstream(working_dir, args):
         execute(git_commit_command, 'Could not commit changes')
 
         # https://www.youtube.com/watch?v=vCadcBR95oU
-        execute(['git', '-C', working_dir, 'push', '-u', 'origin', args.pages_branch], 'Could not push changes using provided credentials.')
+        execute(['git', '-C', working_dir, 'push', '-u', 'origin', branch], 'Could not push changes using provided credentials.')
 
 
 # Whether it is safe to delete the given path, we won't delete important files/folders (such as .git)
-# or the base output directory
 def should_delete(path, args):
-    return not UNTOUCHABLE_FILES_MATCHER.match(path) and path != args.base_output_dir
+    return not UNTOUCHABLE_FILES_MATCHER.match(path)
 
 
 # builds a report URL
@@ -238,14 +261,14 @@ def force_delete(file):
 # Executes an external command, raises an exception if the return code is not 0
 # stderr/stdout are hidden by default to avoid leaking credentials into log files in Travis
 # Important: do not commit code that might print sensitive information, this might end up in a log somewhere outside our control
-def execute(command, error_message='Error encountered while executing command', hide_stderr=True, hide_stdout=True):
+def execute(command, error_message='Error encountered while executing command', danger_debug=False):
     # do not print the command! this might expose usernames/passwords/tokens!
     completed_process = subprocess.run(command, capture_output=True)
     if (completed_process.returncode != 0):
         raise Exception('{}\n  Exit code={}\n  stderr={}\n  stdout{}'.format(
             error_message, completed_process.returncode, 
-            '***hidden***' if hide_stderr else completed_process.stderr, 
-            '***hidden***' if hide_stdout else completed_process.stdout))
+            '***hidden***' if not danger_debug else completed_process.stderr, 
+            '***hidden***' if not danger_debug else completed_process.stdout))
 
 if __name__ == "__main__":
     main()

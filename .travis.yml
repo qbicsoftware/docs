@@ -12,10 +12,9 @@ cache:
   directories:
     - "$HOME/.cache/pip"
 
-# We keep two versions of the docs, for now, master and SNAPSHOTS
+# only keep track of the development branch, for now
 branches:
   only:
-  - master
   - development
 
 # added to make logs look cleaner, crisper, certified fresh
@@ -25,7 +24,7 @@ before_install: unset _JAVA_OPTIONS
 install: true
 
 # keeping complicated scripts separate is not much, but it's honest work
-script: generate-javadocs.py -r submodules.txt -t .index.rst.template -o docs -b $TRAVIS_BRANCH
+script: ./.generate-summary.py -r submodules.txt -t .index.rst.template -o docs -b $TRAVIS_BRANCH
 
 # commit and push changes
 deploy:
