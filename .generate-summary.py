@@ -89,10 +89,13 @@ def main():
     # we need a remote with credentials because we will be pushing changes upstream
     custom_remote = build_remote(args)
     # we assume that the pages branch exists in this repo, if not, this will fail
+    print('Cloning this repo, {}, on directory {}'.format(args.repo_slug, working_dir))
     clone_single_branch(args.repo_slug, working_dir, custom_remote, args.pages_branch)
     # make sure to remove everything we see
+    print('Cleaning local repository ({})'.format(working_dir))
     remove_unneeded_files(working_dir, args)
     # move the files from the output dir to the cloned repository's root folder
+    print('Moving cookiecutter output from {} to {}'.format(cookiecutter_output_dir, working_dir))
     for f in os.listdir(os.path.join(cookiecutter_output_dir, GENERATED_DIR)):
         shutil.move(os.path.join(cookiecutter_output_dir, GENERATED_DIR, f), working_dir)
 
@@ -143,8 +146,7 @@ def clone_single_branch(repo_slug, working_dir, custom_remote, branch):
 
 # Goes through the all files/folders (non-recursively) and deletes them using 'git rm'.
 # Files that should not be deleted are ignored
-def remove_unneeded_files(working_dir, args):
-    print('Cleaning local repository ({})'.format(working_dir))
+def remove_unneeded_files(working_dir, args):    
     for f in os.listdir(working_dir):
         if should_delete(f, args):
             # instead of using OS calls to delete files/folders, use git rm to stage deletions

@@ -32,4 +32,4 @@ We're sorry, there are no available releases reports for this project.
 
 
 
-<sub>Last update: {% now 'utc', '%-d %B %Y', %-H:%M hrs %}.</sub>
+<sub>Last update: {% now 'utc', '%-d %B %Y, %-H:%M hrs' %}.</sub>
