@@ -1,9 +1,9 @@
 # QBiC Documentation
-Welcome to QBiC's technical documentation pages. Last update: {% now 'utc', '%d %b %Y' %}.
+Welcome to QBiC's technical documentation pages. 
 
-Project reports are generated automatically during builds, while this summary is generated once per day. So come back often to get the latest reports. 
+Project reports are generated automatically during builds, while this summary is generated daily. So come back often to get the latest reports. 
 
-## Table of Contents
+## List of Projects
 {% for repo, reports in cookiecutter.repos|dictsort %}
   - [{{loop.index}}. {{ repo }}](#{{loop.index}}-{{ repo }})
 {%- endfor %}
@@ -29,3 +29,7 @@ We're sorry, there are no available releases reports for this project.
     {%- endfor %}
 
 {% endfor %}
+
+
+
+<sub>Last update: {% now 'utc', '%-d %B %Y', %-H:%M hrs%}.</sub>
