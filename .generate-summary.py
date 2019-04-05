@@ -30,7 +30,6 @@ GENERATED_DIR = 'generated'
 # compiled regex to match files that should not be deleted when cleaning the working folder (in gh-pages)
 UNTOUCHABLE_FILES_MATCHER = re.compile('^\.git.*')
 
-
 # parses arguments
 def main():
     parser = argparse.ArgumentParser(description='QBiC Javadoc Generator.', prog='generate-javadocs.py', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
@@ -61,7 +60,7 @@ def main():
     args = parser.parse_args()
 
     # read contents of the repos file into a list
-    repos = parse_repos_file(args.repos_file)
+    repos = parse_repos_file(args)
 
     # we have to clone each of the repos (we use a temp folder) and checkout their gh-pages branch
     # keep track of which repo will be cloned in which directory
@@ -118,15 +117,17 @@ def main():
 # Parses the file found at the given path, returns
 # a list where each element is a line in the file.
 # Lines starting with '#' are ignored
-def parse_repos_file(repos_file):
-    print('Reading GitHub repository names from {}'.format(repos_file))
+def parse_repos_file(args):
+    print('Reading GitHub repository names from {}'.format(args.repos_file))
     repo_names = []
-    with open(repos_file, "r") as f: 
+    with open(args.repos_file, "r") as f: 
         for line in f:
             line = line.strip()
             # ignore comments and empty lines
             if not line or line.startswith('#'):
                 continue
+            if '{}/{}'.format(args.organization, line) == '{}'.format(args.repo_slug):
+                print('    WARNING: Ignoring this repository, {}.'.format(line))
             repo_names.append(line)
             print('    Found submodule {}'.format(line))
     return repo_names

@@ -3,11 +3,8 @@
 # to add "sample-repo" in the list below and commit/push your changes.
 
 # It is assumed that each submodule is at the same level as this repository
-
 16Smetagenomics-taxonomic-profiling
 CSV-Experiment-Parser
-CTDopts
-GenericKnimeNodes
 QDataminer
 UserDBTools
 VaadinSampleTracking
@@ -33,7 +30,6 @@ dmqb-grp3-2018
 dmqb_projects_description
 dmqp_2017_team_green
 dmqp_2017_team_yellow
-docs
 dropboxhandler
 dropboxreporter
 dync
@@ -108,7 +104,6 @@ projectwizard
 projectwizard-portlet
 projectwizard_documentation
 qbic-containers
-qbic-docs
 qbic-nextflow-api
 qbic-portlet-userdbtools
 qbic-portlet-wfvisual
