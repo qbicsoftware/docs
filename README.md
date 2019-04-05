@@ -1,9 +1,9 @@
 # QBiC Documentation
-Welcome to QBiC's technical documentation pages. Last update: 05 Apr 2019.
+Welcome to QBiC's technical documentation pages. 
 
-Project reports are generated automatically during builds, while this summary is generated once per day. So come back often to get the latest reports. 
+Project reports are generated automatically during builds, while this summary is generated daily. So come back often to get the latest reports. 
 
-## Table of Contents
+## List of Projects
 
   - [1. bar-repo](#1-bar-repo)
   - [2. barfoo-repo](#2-barfoo-repo)
@@ -74,3 +74,8 @@ We're sorry, there are no available SNAPSHOT reports for this project.
 #### Release Reports
 We're sorry, there are no available releases reports for this project.
 
+
+
+
+
+<sub>Last update: 5 April 2019, 15:27 hrs.</sub>
