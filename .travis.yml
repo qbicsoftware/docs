@@ -12,10 +12,10 @@ cache:
   directories:
     - "$HOME/.cache/pip"
 
-# only keep track of the development branch, for now
+# only keep track of the master branch, for now
 branches:
   only:
-  - development
+  - master
 
 # added to make logs look cleaner, crisper, certified fresh
 before_install: unset _JAVA_OPTIONS 
@@ -23,19 +23,10 @@ before_install: unset _JAVA_OPTIONS
 # no extra packages required
 install: true
 
+# this script will clone the passed repo and update its gh-pages branch with the lattest summary,
+# make sure to include '[skip travis]' in the first commit message, otherwise we will end up in an endless loop!
 # keeping complicated scripts separate is not much, but it's honest work
-script: ./.generate-summary.py -r submodules.txt -t .index.rst.template -o docs -b $TRAVIS_BRANCH
-
-# commit and push changes
-deploy:
-  # our "deployment" is to commit and push changes done in the docs folder
-  # to trigger ReadTheDocs.org's webhook
-- skip_cleanup: true
-  provider: script
-  script: push-changes.sh docs
-  on:
-    all_branches: true
-    condition: '"$TRAVIS_EVENT_TYPE" = "push"'
+script: ./.generate-summary.py $TRAVIS_REPO_SLUG "[skip travis] Updated summary" "This commit was performed from travis-ci.com using a personal access key" "Build ID: $TRAVIS_BUILD_ID" "Job ID: TRAVIS_JOB_ID" "Branch: $TRAVIS_BRANCH" "Log of this build found at: $TRAVIS_JOB_WEB_URL"
 
 # GitHub access credentials (username, acces token)
 env:
