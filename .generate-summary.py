@@ -129,7 +129,7 @@ def parse_repos_file(args):
             if '{}/{}'.format(args.organization, line) == '{}'.format(args.repo_slug):
                 print('    WARNING: Ignoring this repository, {}.'.format(line))
             repo_names.append(line)
-            print('    Found submodule {}'.format(line))
+            print('    Found repo {}'.format(line))
     return repo_names
 
 
