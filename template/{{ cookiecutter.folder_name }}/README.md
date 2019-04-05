@@ -17,7 +17,7 @@ GitHub link: [https://github.com/qbicsoftware/{{ repo }}](https://github.com/qbi
     {%- if 'development' in reports %}
 [Latest SNAPSHOT report]({{ reports['development'] }})
     {%- else %}
-We're sorry, there are no available SNAPSHOT reports for this project.
+We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
     {%- endif %}
 
 
@@ -25,7 +25,7 @@ We're sorry, there are no available SNAPSHOT reports for this project.
     {%- for report, link in reports|dictsort if report != 'development' %}
   - [{{ report }}]({{ link }})
     {%- else %}
-We're sorry, there are no available releases reports for this project.
+We're sorry, there are no available releases reports for this project. Come back soon!
     {%- endfor %}
 
 {% endfor %}
