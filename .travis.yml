@@ -6,6 +6,7 @@ dist: xenial
 
 # no need to check for oracle's java
 language: python
+python: "3.6"
 
 # speed up builds by caching pip, miniconda
 cache:
