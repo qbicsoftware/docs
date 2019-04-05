@@ -1,13 +1,16 @@
 #!/usr/bin/env python
 
 # Script to automatically generate a README.md file containing links to all GitHub pages
-# containing documentation. It is assummed that cookiecutter has been installed and is
-# available as a Python module.
+# containing documentation. The following assumptions are made:
+# 
+#  * cookiecutter has been installed and is available as a Python module.
+#  * this repo has a branch matching the --pages-branch command-line option.
 #
 # This script injects extra context using cookiecutter's API to provide the most recent
 # links to generated reports.
 
-import cookiecutter, tempfile, argparse, os, subprocess, sys, re, traceback
+import tempfile, argparse, os, subprocess, sys, re, traceback, shutil
+from cookiecutter.main import cookiecutter
 from datetime import date
 
 # location of the template that cookiecutter will use
@@ -60,14 +63,6 @@ def main():
     # read contents of the repos file into a list
     repos = parse_repos_file(args.repos_file)
 
-    # since this will run on Travis, we cannot assume that we can change the current local repo without breaking anything
-    # the safest way would be to clone this same repository on a temporary folder and leave the current local repo alone
-    working_dir = tempfile.mkdtemp()
-    custom_remote = build_remote(args)
-    clone_single_branch(args.repo_slug, working_dir, custom_remote, args.pages_branch)
-    # make sure to remove everything we see
-    remove_unneeded_files(working_dir, args)
-
     # we have to clone each of the repos (we use a temp folder) and checkout their gh-pages branch
     # keep track of which repo will be cloned in which directory
     repo_dirs = {}
@@ -78,18 +73,28 @@ def main():
         except:
             # we could parse the stdout to make sure that this failed because the pages branch does not exit...
             # or we could just assume that this failed because the pages branch does not exist...
-            print('WARNING: could not clone a single branch, {}, from repo {}'.format(args.pages_branch, repo))
+            print('WARNING: could not clone a single branch, {}, from repo {}. Are you sure that the branch exists?'.format(args.pages_branch, repo))
 
     # prepare to use cookiecutter
     # build a dictionary with a structure similar to cookiecutter.json
     extra_context = build_extra_context(repo_dirs, args)
-    extra_content['folder_name'] = GENERATED_DIR
+    extra_context['folder_name'] = GENERATED_DIR
     # apply the template and generate output in a temp folder
     cookiecutter_output_dir = tempfile.mkdtemp()
     cookiecutter(COOKIECUTTER_TEMPLATE, no_input=True, overwrite_if_exists=True, extra_context=extra_context, output_dir=cookiecutter_output_dir)
+
+    # since this will run on Travis, we cannot assume that we can change the current local repo without breaking anything
+    # the safest way would be to clone this same repository on a temporary folder and leave the current local repo alone
+    working_dir = tempfile.mkdtemp()
+    # we need a remote with credentials because we will be pushing changes upstream
+    custom_remote = build_remote(args)
+    # we assume that the pages branch exists in this repo, if not, this will fail
+    clone_single_branch(args.repo_slug, working_dir, custom_remote, args.pages_branch)
+    # make sure to remove everything we see
+    remove_unneeded_files(working_dir, args)
     # move the files from the output dir to the cloned repository's root folder
     for f in os.listdir(os.path.join(cookiecutter_output_dir, GENERATED_DIR)):
-        os.shutil.move(os.path.join(cookiecutter_output_dir, GENERATED_DIR, f), working_dir)
+        shutil.move(os.path.join(cookiecutter_output_dir, GENERATED_DIR, f), working_dir)
 
     # push changes upstream to gh-pages
     push_upstream(working_dir, args.pages_branch, args)
@@ -98,10 +103,10 @@ def main():
     if not args.skip_cleanup:
         print('Removing cookiecutter working folder, {}'.format(cookiecutter_output_dir))
         print('Removing folder where this repo was cloned, {}'.format(working_dir))
-        os.shutil.rmtree(working_dir)
-        os.shutil.rmtree(cookiecutter_output_dir)
+        shutil.rmtree(working_dir)
+        shutil.rmtree(cookiecutter_output_dir)
         print('Removing repo directories')
-        for repo, repo_dir in repo_dirs:
+        for repo, repo_dir in repo_dirs.items():
             print('    Removing folder where repo {} was cloned, {}'.format(repo, repo_dir))
     else:
         print('Working folders and repo folders were not removed (skipping cleanup)')
@@ -154,11 +159,11 @@ def remove_unneeded_files(working_dir, args):
 
 # builds a dictionary similar to cookiecutter.json containing the latest values
 # this is just some advanced trickery, no more, no less... we are assumming that each of the cloned repos points to the
-# pages branch and that the repository has a given directory structure
-def build_extra_context(repo_dirs, submodules, args):
+# pages branch and that the repository has a given directory structure (see comment on .generate-reports.py on the cookiecutter-templates-cli repo)
+def build_extra_context(repo_dirs, args):
     extra_context = {}
     reports = {}    
-    for repo, repo_dir in repo_dirs:
+    for repo, repo_dir in repo_dirs.items():
         # alliteration FTW
         repo_reports = {}
         repo_reports_dir = os.path.join(repo_dir, args.base_report_dir)
@@ -175,6 +180,7 @@ def build_extra_context(repo_dirs, submodules, args):
         else:
             print('WARNING: no reports were found for repository {}', repo, file=sys.stderr)            
     extra_context['reports'] = reports
+    return extra_context
 
 
 # Adds, commits and pushes changes
@@ -233,7 +239,7 @@ def execute(command, error_message='Error encountered while executing command', 
                 print('{}\n  No information about the originating call is available.'.format(error_message), file=sys.stderr)
             exit(1)
         else:
-            raise Error()
+            raise Exception()
     
 
 if __name__ == "__main__":

@@ -1,5 +1,5 @@
 # QBiC Documentation
-Welcome to QBiC's technical documentation pages. Last update: {% now 'utc', '%d %b %Y' %})
+Welcome to QBiC's technical documentation pages. Last update: {% now 'utc', '%d %b %Y' %}.
 
 Project reports are generated automatically during builds, while this summary is generated once per day. So come back often to get the latest reports. 
 
