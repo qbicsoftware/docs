@@ -178,7 +178,7 @@ def build_extra_context(repo_dirs, args):
         if len(repo_reports):
             reports[repo] = repo_reports
         else:
-            print('WARNING: no reports were found for repository {}', repo, file=sys.stderr)            
+            print('WARNING: no reports were found for repository {}'.format(repo), file=sys.stderr)
     extra_context['reports'] = reports
     return extra_context
 
