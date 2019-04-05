@@ -1,5 +1,5 @@
 # QBiC Documentation
-Welcome to QBiC's technical documentation pages. Last update: 05 Apr 2019)
+Welcome to QBiC's technical documentation pages. Last update: 05 Apr 2019.
 
 Project reports are generated automatically during builds, while this summary is generated once per day. So come back often to get the latest reports. 
 
