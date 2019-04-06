@@ -9,17 +9,14 @@
 # This script injects extra context using cookiecutter's API to provide the most recent
 # links to generated reports.
 
-import tempfile, argparse, os, subprocess, sys, re, traceback, shutil
+import argparse, os, re, requests, shutil, subprocess, sys, tempfile, traceback
 from cookiecutter.main import cookiecutter
-from datetime import date
 
 # location of the template that cookiecutter will use
 COOKIECUTTER_TEMPLATE = 'template'
 # only the most recent SNAPSHOT version will be shown,
 # this is the name of the folder containing the snapshot reports
 SNAPSHOT_REPORTS_DIR = 'development'
-# file containing the names of the repos for which reports will be shown
-REPOSITORIES_FILE = 'repos.txt'
 # credentials are given via environment variables
 USERNAME_ENV_VARIABLE_NAME = 'REPORTS_GITHUB_USERNAME'
 TOKEN_ENV_VARIABLE_NAME = 'REPORTS_GITHUB_ACCESS_TOKEN'
@@ -33,8 +30,6 @@ UNTOUCHABLE_FILES_MATCHER = re.compile('^\.git.*')
 # parses arguments
 def main():
     parser = argparse.ArgumentParser(description='QBiC Javadoc Generator.', prog='generate-javadocs.py', formatter_class=argparse.ArgumentDefaultsHelpFormatter)
-    parser.add_argument('-r', '--repos-file', default=REPOSITORIES_FILE,
-        help='File containing a list of GitHub repositories containing reports.')
     parser.add_argument('-t', '--template', default=COOKIECUTTER_TEMPLATE,
         help='Cookiecutter template directory.')
     parser.add_argument('-s', '--snapshots-reports-dir', default=SNAPSHOT_REPORTS_DIR,
@@ -59,24 +54,15 @@ def main():
         help='Message(s) to use when committing changes.')
     args = parser.parse_args()
 
-    # read contents of the repos file into a list
-    repos = parse_repos_file(args)
-
-    # we have to clone each of the repos (we use a temp folder) and checkout their gh-pages branch
-    # keep track of which repo will be cloned in which directory
-    repo_dirs = {}
-    for repo in repos:
-        try:
-            repo_dirs[repo] = tempfile.mkdtemp()
-            clone_single_branch('{}/{}'.format(args.organization, repo), repo_dirs[repo], args.pages_branch)
-        except:
-            # we could parse the stdout to make sure that this failed because the pages branch does not exit...
-            # or we could just assume that this failed because the pages branch does not exist...
-            print('WARNING: could not clone a single branch, {}, from repo {}. Are you sure that the branch exists?'.format(args.pages_branch, repo))
+    # get the list of repos from GitHub and clone them
+    # remove this repo from the list of repos, this project's documentation is on the master branch's README.md file
+    # TODO: maybe add a list of ignored repos? let's just shame report-less repos!
+    repos = [repo for repo in get_repos(args) if repo['full_name'] != args.repo_slug]
+    repo_dirs = clone_repos(repos, args)
 
     # prepare to use cookiecutter
     # build a dictionary with a structure similar to cookiecutter.json
-    extra_context = build_extra_context(repo_dirs, args)
+    extra_context = build_extra_context(repos, repo_dirs, args)
     extra_context['folder_name'] = GENERATED_DIR
     # apply the template and generate output in a temp folder
     cookiecutter_output_dir = tempfile.mkdtemp()
@@ -114,24 +100,47 @@ def main():
         print('Working folders and repo folders were not removed (skipping cleanup)')
 
 
-# Parses the file found at the given path, returns
-# a list where each element is a line in the file.
-# Lines starting with '#' are ignored
-def parse_repos_file(args):
-    print('Reading GitHub repository names from {}'.format(args.repos_file))
-    repo_names = []
-    with open(args.repos_file, "r") as f: 
-        for line in f:
-            line = line.strip()
-            # ignore comments and empty lines
-            if not line or line.startswith('#'):
-                continue
-            if '{}/{}'.format(args.organization, line) == '{}'.format(args.repo_slug):
-                print('    WARNING: Ignoring this repository, {}.'.format(line))
-            repo_names.append(line)
-            print('    Found repo {}'.format(line))
-    return repo_names
+# Gets the list of repositories using GitHub's REST API
+# this repo (args.repo_slug) should be ignored (this repo doesn't have any reports)
+# see: https://developer.github.com/v3/repos/#list-organization-repositories
+def get_repos(args):
+    print('Getting repositories from GitHub')
+    base_endpoint = 'https://api.github.com/orgs/qbicsoftware/repos?type=all&sort=full_name&direction=asc&page={}'
+    repos = []
+    # pages are 1-based 
+    page_index = 1
+    # Python: y u no have do-whiles?
+    while True:
+        print('    Retrieving page {}'.format(page_index))
+        repos_page = requests.get(base_endpoint.format(page_index)).json()
+        # if repos_page is empty, it means that we ran out of pages, so we can exit this loop
+        if not repos_page:
+            break
+        repos.extend(repos_page)
+        page_index = page_index + 1
+    return repos
 
+
+# clones repos into temporary directories
+# returns a map where the keys are the repo full names (e.g., qbicsoftware/repo-name) and the values
+# are the paths to the temporary folder where the repo was cloned
+def clone_repos(git_repos, args):
+    # we have to clone each of the repos (we use a temp folder) and checkout their gh-pages branch
+    # keep track of which repo will be cloned in which directory
+    # we are ignoring this repo (args.repo_slug), because we know that this repo doesn't have reports!
+    repo_dirs = {}
+    for git_repo in git_repos:
+        full_name = git_repo['full_name']
+        if full_name != args.repo_slug:
+            try:
+                tmp_dir = tempfile.mkdtemp()
+                repo_dirs[full_name] = tmp_dir
+                clone_single_branch(full_name, tmp_dir, args.pages_branch)
+            except:
+                # we could parse the stdout to make sure that this failed because the pages branch does not exit...
+                # or we could just assume that this failed because the pages branch does not exist...
+                print('WARNING: could not clone branch {} from repo {}. Are you sure that the branch exists?'.format(args.pages_branch, full_name))
+    return repo_dirs
 
 # Builds a git remote using environment variables for credentials and the repo slug
 def build_remote(args):
@@ -163,27 +172,31 @@ def remove_unneeded_files(working_dir, args):
 # builds a dictionary similar to cookiecutter.json containing the latest values
 # this is just some advanced trickery, no more, no less... we are assumming that each of the cloned repos points to the
 # pages branch and that the repository has a given directory structure (see comment on .generate-reports.py on the cookiecutter-templates-cli repo)
-def build_extra_context(repo_dirs, args):
-    extra_context = {}
-    reports = {}    
-    for repo, repo_dir in repo_dirs.items():
+# see cookiecutter.json 
+def build_extra_context(git_repos, repo_dirs, args):
+    cookiecutter_repos = {}
+    for git_repo in git_repos:
         # alliteration FTW
-        repo_reports = {}
+        cookiecutter_repo = {'description': git_repo['description']}
+        cookiecutter_repo_reports = {}
+        repo_dir = repo_dirs[git_repo['full_name']]
         repo_reports_dir = os.path.join(repo_dir, args.base_report_dir)
         if os.path.exists(repo_reports_dir) and os.path.isdir(repo_reports_dir):
             for f in os.listdir(repo_reports_dir):
                 # treat all directories as reports, just make sure to check for snapshot reports
                 if os.path.isdir(os.join(repo_reports_dir, f)):
                     if f == args.snapshot_reports_dir:
-                        repo_reports['development'] = build_report_url(repo, args.snapshot_reports_dir, args)
+                        # see cookiecutter.json
+                        cookiecutter_repo_reports['development'] = build_report_url(git_repo['name'], args.snapshot_reports_dir, args)
                     else:
-                        repo_reports[f] = build_report_url(repo, f, args)
-        reports[repo] = repo_reports
-        if not len(repo_reports):
-            print('WARNING: no reports were found for repository {}'.format(repo), file=sys.stderr)
-            
-    extra_context['repos'] = reports
-    return extra_context
+                        cookiecutter_repo_reports[f] = build_report_url(git_repo['name'], f, args)
+        if not len(cookiecutter_repo_reports):
+            print('WARNING: no reports were found for repository {}'.format(git_repo['full_name']), file=sys.stderr)
+        cookiecutter_repo['reports'] = cookiecutter_repo_reports                
+        # use only the name to avoid parsing it on the README.md further down
+        cookiecutter_repos[git_repo['name']] = cookiecutter_repo
+    # see cookiecutter.json
+    return {'repos': cookiecutter_repos}
 
 
 # Adds, commits and pushes changes
