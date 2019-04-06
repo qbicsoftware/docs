@@ -11,6 +11,7 @@ Project reports are generated automatically during builds, while this summary is
 {% for repo_name, repo in cookiecutter.repos|dictsort %}
 ### {{ loop.index }}. {{ repo_name }}
 {{ repo['description'] if repo['description'] else 'No description available for {}.'.format(repo_name) }}
+
 GitHub link: [https://github.com/qbicsoftware/{{ repo_name }}](https://github.com/qbicsoftware/{{ repo_name }})
 
 
