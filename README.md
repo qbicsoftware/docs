@@ -34,7 +34,7 @@ GitHub link: [https://github.com/qbicsoftware/barfoo-repo](https://github.com/qb
 
 
 #### Release Reports
-We're sorry, there are no available releases reports for this project.
+We're sorry, there are no available releases reports for this project. Come back soon!
 
 
 ### 3. foo-repo
@@ -55,7 +55,7 @@ GitHub link: [https://github.com/qbicsoftware/foobar-repo](https://github.com/qb
 
 
 #### SNAPSHOT Reports
-We're sorry, there are no available SNAPSHOT reports for this project.
+We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
 
 
 #### Release Reports
@@ -68,14 +68,14 @@ GitHub link: [https://github.com/qbicsoftware/nasty-repo](https://github.com/qbi
 
 
 #### SNAPSHOT Reports
-We're sorry, there are no available SNAPSHOT reports for this project.
+We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
 
 
 #### Release Reports
-We're sorry, there are no available releases reports for this project.
+We're sorry, there are no available releases reports for this project. Come back soon!
 
 
 
 
 
-<sub>Last update: 5 April 2019, 15:27 hrs.</sub>
+<sub>Last update: 6 April 2019, 2:00 hrs.</sub>
