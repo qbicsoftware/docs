@@ -24,7 +24,6 @@ before_install: unset _JAVA_OPTIONS
 # see requirements.txt for details on dependencies
 install:
   - pip install -r requirements.txt
-  - pip install .
 
 # this script will clone the passed repo and update its gh-pages branch with the lattest summary,
 # make sure to include '[skip travis]' in the first commit message, otherwise we will end up in an endless loop!
