@@ -6,7 +6,7 @@ dist: xenial
 
 # no need to check for oracle's java
 language: python
-python: "3.6"
+python: "3.7"
 
 # speed up builds by caching pip, miniconda
 cache:
@@ -21,8 +21,10 @@ branches:
 # added to make logs look cleaner, crisper, certified fresh
 before_install: unset _JAVA_OPTIONS 
 
-# no extra packages required
-install: true
+# see requirements.txt for details on dependencies
+install:
+  - pip install -r requirements.txt
+  - pip install .
 
 # this script will clone the passed repo and update its gh-pages branch with the lattest summary,
 # make sure to include '[skip travis]' in the first commit message, otherwise we will end up in an endless loop!
