@@ -178,11 +178,11 @@ def build_extra_context(repo_dirs, args):
                         repo_reports['development'] = build_report_url(repo, args.snapshot_reports_dir, args)
                     else:
                         repo_reports[f] = build_report_url(repo, f, args)
-        if len(repo_reports):
-            reports[repo] = repo_reports
-        else:
+        reports[repo] = repo_reports
+        if not len(repo_reports):
             print('WARNING: no reports were found for repository {}'.format(repo), file=sys.stderr)
-    extra_context['reports'] = reports
+            
+    extra_context['repos'] = reports
     return extra_context
 
 
