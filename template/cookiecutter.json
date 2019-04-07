@@ -1,6 +1,6 @@
 {
     "folder_name": "generated",
-    "theme": "jekyll-theme-midnight",
+    "theme": "jekyll-theme-minimal",
     "repos": {
         "foo-repo": {
             "description": "foo-repo description",
