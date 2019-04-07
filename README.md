@@ -347,7 +347,7 @@ GitHub link: [https://github.com/qbicsoftware/core-utils-lib](https://github.com
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/core-utils-lib/reports/development/index.html)
 
 
 #### Release reports
@@ -2695,4 +2695,4 @@ We're sorry, there are no available releases reports for this project. Come back
 
 
 
-<sub>Last update: 7 April 2019, 7:54 hrs.</sub>
+<sub>Last update: 7 April 2019, 8:28 hrs.</sub>
