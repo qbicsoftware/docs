@@ -76,7 +76,7 @@ def main():
     # the safest way would be to clone this same repository on a temporary folder and leave the current local repo alone
     working_dir = tempfile.mkdtemp()
     # we need a remote with credentials because we will be pushing changes upstream
-    custom_remote = build_remote(args)
+    custom_remote = build_custom_remote(args)
     # we assume that the pages branch exists in this repo, if not, this will fail
     print('Cloning this repo, {}, on directory {}'.format(args.repo_slug, working_dir))
     clone_single_branch(args.repo_slug, working_dir, custom_remote, args.pages_branch)
@@ -138,25 +138,21 @@ def clone_repos(git_repos, args):
         full_name = git_repo['full_name']
         tmp_dir = tempfile.mkdtemp()
         repo_dirs[full_name] = tmp_dir
-        try:            
-            clone_single_branch(full_name, tmp_dir, args.pages_branch)
-        except:
-            # we could parse the stdout to make sure that this failed because the pages branch does not exit...
-            # or we could just assume that this failed because the pages branch does not exist...
-            print('    Could not clone branch {} from repo {}. The most probable cause is that the branch doesn\'t exist'.format(args.pages_branch, full_name))
+        # check if the branch exists on the repo before cloning, else, simply ignore
+        if 'name' in requests.get('{}/repos/{}/branches/{}'.format(args.github_api_endpoint, full_name, args.pages_branch)).json():
+            # no need of a custom remote, we are just cloning repos
+            clone_single_branch(full_name, tmp_dir, 'https://github.com/{}'.format(full_name), args.pages_branch)
 
     return repo_dirs
 
 # Builds a git remote using environment variables for credentials and the repo slug
-def build_remote(args):
+def build_custom_remote(args):
     return 'https://{}:{}@github.com/{}'.format(os.environ[args.username_var_name], os.environ[args.access_token_var_name], args.repo_slug)
 
 
 # Clones a single branch from the remote repository into the working directory
-def clone_single_branch(repo_slug, working_dir, custom_remote, branch):
-    print('Cloning {}, branch {}, into temporary folder {}'.format(repo_slug, branch, working_dir))
-    execute(['git', 'clone', '--single-branch', '--branch', branch, custom_remote, working_dir], 
-                'Could not clone {} in directory {}'.format(repo_slug, working_dir))
+def clone_single_branch(repo_slug, working_dir, remote, branch, exit_if_fail=True):
+    execute(['git', 'clone', '--single-branch', '--branch', branch, remote, working_dir], 'Could not clone {} in directory {}'.format(repo_slug, working_dir), exit_if_fail)
 
 
 # Goes through the all files/folders (non-recursively) and deletes them using 'git rm'.
@@ -189,10 +185,10 @@ def build_extra_context(git_repos, repo_dirs, args):
         if os.path.exists(repo_reports_dir) and os.path.isdir(repo_reports_dir):
             for f in os.listdir(repo_reports_dir):
                 # treat all directories as reports, just make sure to check for snapshot reports
-                if os.path.isdir(os.join(repo_reports_dir, f)):
-                    if f == args.snapshot_reports_dir:
+                if os.path.isdir(os.path.join(repo_reports_dir, f)):
+                    if f == args.snapshots_reports_dir:
                         # see cookiecutter.json
-                        cookiecutter_repo_reports['development'] = build_report_url(git_repo['name'], args.snapshot_reports_dir, args)
+                        cookiecutter_repo_reports['development'] = build_report_url(git_repo['name'], args.snapshots_reports_dir, args)
                     else:
                         cookiecutter_repo_reports[f] = build_report_url(git_repo['name'], f, args)
         if not len(cookiecutter_repo_reports):
