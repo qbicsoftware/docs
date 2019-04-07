@@ -92,7 +92,7 @@ def main():
         shutil.rmtree(cookiecutter_output_dir)
         print('Removing repo directories')
         for repo, repo_dir in repo_dirs.items():
-            print('    Removing directory ({}) where {} was cloned'.format(repo_dir, repo.full_name))
+            print('    Removing directory ({}) where {} was cloned'.format(repo_dir, repo))
     else:
         print('(skipping cleanup) Working folders and repo folders were not removed')
 
