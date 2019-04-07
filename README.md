@@ -529,11 +529,11 @@ GitHub link: [https://github.com/qbicsoftware/docs-test-service](https://github.
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/docs-test-service/reports/development/index.html)
 
 
 #### Release reports
-We're sorry, there are no available releases reports for this project. Come back soon!
+  - [1.0.0](https://qbicsoftware.github.com/docs-test-service/reports/1.0.0/index.html)
 
 
 ### 26. dropboxhandler
@@ -2695,4 +2695,4 @@ We're sorry, there are no available releases reports for this project. Come back
 
 
 
-<sub>Last update: 7 April 2019, 7:47 hrs.</sub>
+<sub>Last update: 7 April 2019, 7:54 hrs.</sub>
