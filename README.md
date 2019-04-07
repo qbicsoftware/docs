@@ -347,7 +347,7 @@ GitHub link: [https://github.com/qbicsoftware/core-utils-lib](https://github.com
 
 
 #### SNAPSHOT reports
-[Latest SNAPSHOT report](https://qbicsoftware.github.com/core-utils-lib/reports/development/index.html)
+We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
 
 
 #### Release reports
@@ -529,11 +529,11 @@ GitHub link: [https://github.com/qbicsoftware/docs-test-service](https://github.
 
 
 #### SNAPSHOT reports
-[Latest SNAPSHOT report](https://qbicsoftware.github.com/docs-test-service/reports/development/index.html)
+We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
 
 
 #### Release reports
-  - [1.0.0](https://qbicsoftware.github.com/docs-test-service/reports/1.0.0/index.html)
+We're sorry, there are no available releases reports for this project. Come back soon!
 
 
 ### 26. dropboxhandler
@@ -2695,4 +2695,4 @@ We're sorry, there are no available releases reports for this project. Come back
 
 
 
-<sub>Last update: 7 April 2019, 8:28 hrs.</sub>
+<sub>Last update: 7 April 2019, 8:54 hrs.</sub>
