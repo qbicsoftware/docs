@@ -9,8 +9,9 @@
 # This script injects extra context using cookiecutter's API to provide the most recent
 # links to generated reports.
 
-import argparse, os, re, requests, shutil, subprocess, sys, tempfile, traceback
+import argparse, os, re, shutil, subprocess, sys, tempfile, traceback
 from cookiecutter.main import cookiecutter
+from github import Github
 
 # location of the template that cookiecutter will use
 COOKIECUTTER_TEMPLATE = 'template'
@@ -18,7 +19,6 @@ COOKIECUTTER_TEMPLATE = 'template'
 # this is the name of the folder containing the snapshot reports
 SNAPSHOT_REPORTS_DIR = 'development'
 # credentials are given via environment variables
-USERNAME_ENV_VARIABLE_NAME = 'REPORTS_GITHUB_USERNAME'
 TOKEN_ENV_VARIABLE_NAME = 'REPORTS_GITHUB_ACCESS_TOKEN'
 # base directory where reports reside on gh-pages of each of the submodules
 BASE_REPORT_DIR = 'reports'
@@ -26,8 +26,7 @@ BASE_REPORT_DIR = 'reports'
 GENERATED_DIR = 'generated'
 # compiled regex to match files that should not be deleted when cleaning the working folder (in gh-pages)
 UNTOUCHABLE_FILES_MATCHER = re.compile('^\.git.*')
-# GitHub's REST API endpoint
-GITHUB_API_ENDPOINT = 'https://api.github.com'
+
 
 # parses arguments
 def main():
@@ -40,8 +39,6 @@ def main():
         help='Execute in dry run mode. No changes to this repo will be done in dry run mode.')
     parser.add_argument('--skip-cleanup', action='store_true',
         help='If used, temporary folders used as working directories will not be removed.')
-    parser.add_argument('-u', '--username-var-name', default=USERNAME_ENV_VARIABLE_NAME,
-        help='Name of the environment variable holding the GitHub username used to push changes in reports.')
     parser.add_argument('-a', '--access-token-var-name', default=TOKEN_ENV_VARIABLE_NAME,
         help='Name of the environment variable holding the GitHub personal access token used to push changes in reports.')
     parser.add_argument('-p', '--pages-branch', default='gh-pages',
@@ -50,8 +47,6 @@ def main():
         help='Name of the organization (or username) for which documentation will be built. All repos should be part of this organization (or username).')
     parser.add_argument('-b', '--base-report-dir', default=BASE_REPORT_DIR,
         help='Base directory where reports reside on each of the submodules.')
-    parser.add_argument('-g', '--github-api-endpoint', default=GITHUB_API_ENDPOINT,
-        help='GitHub\'s REST API endpoint.')
     parser.add_argument('repo_slug', 
         help='Slug of this repository, e.g., qbicsoftware/docs.')
     parser.add_argument('commit_message', nargs='+', 
@@ -61,7 +56,7 @@ def main():
     # get the list of repos from GitHub and clone them
     # remove this repo from the list of repos, this project's documentation is on the master branch's README.md file
     # TODO: maybe add a list of ignored repos? let's just shame report-less repos!
-    repos = [repo for repo in get_repos(args) if repo['full_name'] != args.repo_slug]
+    repos = [repo for repo in get_repos(args) if repo.full_name != args.repo_slug]
     repo_dirs = clone_repos(repos, args)
 
     # prepare to use cookiecutter
@@ -75,11 +70,9 @@ def main():
     # since this will run on Travis, we cannot assume that we can change the current local repo without breaking anything
     # the safest way would be to clone this same repository on a temporary folder and leave the current local repo alone
     working_dir = tempfile.mkdtemp()
-    # we need a remote with credentials because we will be pushing changes upstream
-    custom_remote = build_custom_remote(args)
     # we assume that the pages branch exists in this repo, if not, this will fail
     print('Cloning this repo, {}, on directory {}'.format(args.repo_slug, working_dir))
-    clone_single_branch(args.repo_slug, working_dir, custom_remote, args.pages_branch)
+    clone_single_branch(args.repo_slug, args.pages_branch, working_dir, args)
     # make sure to remove everything we see
     print('Cleaning local repository ({})'.format(working_dir))
     remove_unneeded_files(working_dir, args)
@@ -99,60 +92,57 @@ def main():
         shutil.rmtree(cookiecutter_output_dir)
         print('Removing repo directories')
         for repo, repo_dir in repo_dirs.items():
-            print('    Removing folder where repo {} was cloned, {}'.format(repo, repo_dir))
+            print('    Removing directory ({}) where {} was cloned'.format(repo_dir, repo.full_name))
     else:
-        print('Working folders and repo folders were not removed (skipping cleanup)')
+        print('(skipping cleanup) Working folders and repo folders were not removed')
 
 
-# Gets the list of repositories using GitHub's REST API
-# this repo (args.repo_slug) should be ignored (this repo doesn't have any reports)
-# see: https://developer.github.com/v3/repos/#list-organization-repositories
+# Gets the list of repositories for the given organization using GitHub's REST API
 def get_repos(args):
     print('Getting repositories from GitHub')
-    endpoint = '{}/orgs/qbicsoftware/repos?type=all&sort=full_name&direction=asc&per_page=100&page={}'
-    repos = []
-    # pages are 1-based 
-    page_index = 1
-    # Python: y u no have do-whiles?
-    while True:
-        print('    Retrieving page {}'.format(page_index))
-        repos_page = requests.get(endpoint.format(args.github_api_endpoint, page_index)).json()
-        # if repos_page is empty, it means that we ran out of pages, so we can exit this loop
-        if not repos_page:
-            break
-        repos.extend(repos_page)
-        page_index = page_index + 1
-    return repos
+    # PyGithub FTW
+    github = get_github(args)
+    return github.get_organization(args.organization).get_repos()
 
 
 # clones repos into temporary directories
 # returns a map where the keys are the repo full names (e.g., qbicsoftware/repo-name) and the values
-# are the paths to the temporary folder where the repo was cloned
+# are the paths to the temporary folder where the repo was cloned; repos that don't contain the pages
+# branch won't be present in the returned dictionary
 def clone_repos(git_repos, args):
     # we have to clone each of the repos (we use a temp folder) and checkout their gh-pages branch
     # keep track of which repo will be cloned in which directory
     # we are ignoring this repo (args.repo_slug), because we know that this repo doesn't have reports!
-    print('Cloning repositories...')
+    print('Cloning repositories containing a branch named {}'.format(args.pages_branch))
     repo_dirs = {}
-    for git_repo in git_repos:
-        full_name = git_repo['full_name']
-        tmp_dir = tempfile.mkdtemp()
-        repo_dirs[full_name] = tmp_dir
+    for git_repo in git_repos:        
         # check if the branch exists on the repo before cloning, else, simply ignore
-        if 'name' in requests.get('{}/repos/{}/branches/{}'.format(args.github_api_endpoint, full_name, args.pages_branch)).json():
+        pages_branch_found = False
+        for branch in git_repo.get_branches():
+            if branch.name == args.pages_branch:
+                pages_branch_found = True
+                break
+        if pages_branch_found:
             # no need of a custom remote, we are just cloning repos
-            clone_single_branch(full_name, tmp_dir, 'https://github.com/{}'.format(full_name), args.pages_branch)
+            tmp_dir = tempfile.mkdtemp()
+            repo_dirs[git_repo.full_name] = tmp_dir
+            print('    cloning {}'.format(git_repo.full_name))
+            clone_single_branch(git_repo.full_name, args.pages_branch, tmp_dir, args)
 
     return repo_dirs
 
-# Builds a git remote using environment variables for credentials and the repo slug
-def build_custom_remote(args):
-    return 'https://{}:{}@github.com/{}'.format(os.environ[args.username_var_name], os.environ[args.access_token_var_name], args.repo_slug)
+
+# builds the Github object
+def get_github(args, per_page=100):
+    github = Github(os.environ[args.access_token_var_name])
+    github.per_page = per_page
+    return github
 
 
-# Clones a single branch from the remote repository into the working directory
-def clone_single_branch(repo_slug, working_dir, remote, branch, exit_if_fail=True):
-    execute(['git', 'clone', '--single-branch', '--branch', branch, remote, working_dir], 'Could not clone {} in directory {}'.format(repo_slug, working_dir), exit_if_fail)
+# Clones a single branch from the remote repository into the working directory, credentials are used because OAuth
+# has a bigger quota
+def clone_single_branch(repo_slug, branch, working_dir, args, exit_if_fail=True):
+    execute(['git', 'clone', '--single-branch', '--branch', branch, 'https://{}:x-oauth-basic@github.com/{}'.format(os.environ[args.access_token_var_name], repo_slug), working_dir], 'Could not clone {} in directory {}'.format(repo_slug, working_dir), exit_if_fail)
 
 
 # Goes through the all files/folders (non-recursively) and deletes them using 'git rm'.
@@ -178,24 +168,26 @@ def build_extra_context(git_repos, repo_dirs, args):
     cookiecutter_repos = {}
     for git_repo in git_repos:
         # alliteration FTW
-        cookiecutter_repo = {'description': git_repo['description']}
+        cookiecutter_repo = {'description': git_repo.description}
         cookiecutter_repo_reports = {}
-        repo_dir = repo_dirs[git_repo['full_name']]
-        repo_reports_dir = os.path.join(repo_dir, args.base_report_dir)
-        if os.path.exists(repo_reports_dir) and os.path.isdir(repo_reports_dir):
-            for f in os.listdir(repo_reports_dir):
-                # treat all directories as reports, just make sure to check for snapshot reports
-                if os.path.isdir(os.path.join(repo_reports_dir, f)):
-                    if f == args.snapshots_reports_dir:
-                        # see cookiecutter.json
-                        cookiecutter_repo_reports['development'] = build_report_url(git_repo['name'], args.snapshots_reports_dir, args)
-                    else:
-                        cookiecutter_repo_reports[f] = build_report_url(git_repo['name'], f, args)
-        if not len(cookiecutter_repo_reports):
-            print('No reports were found for {}'.format(git_repo['full_name']), file=sys.stderr)
+        repo_dir = repo_dirs[git_repo.full_name] if git_repo.full_name in repo_dirs else None
+        # process only if the repo was cloned
+        if repo_dir:
+            repo_reports_dir = os.path.join(repo_dir, args.base_report_dir)
+            if os.path.exists(repo_reports_dir) and os.path.isdir(repo_reports_dir):
+                for f in os.listdir(repo_reports_dir):
+                    # treat all directories as reports, just make sure to check for snapshot reports
+                    if os.path.isdir(os.path.join(repo_reports_dir, f)):
+                        if f == args.snapshots_reports_dir:
+                            # see cookiecutter.json
+                            cookiecutter_repo_reports['development'] = build_report_url(git_repo.name, args.snapshots_reports_dir, args)
+                        else:
+                            cookiecutter_repo_reports[f] = build_report_url(git_repo.name, f, args)
+            if not len(cookiecutter_repo_reports):
+                print('No reports were found for {}'.format(git_repo.full_name), file=sys.stderr)
         cookiecutter_repo['reports'] = cookiecutter_repo_reports                
         # use only the name to avoid parsing it on the README.md further down
-        cookiecutter_repos[git_repo['name']] = cookiecutter_repo
+        cookiecutter_repos[git_repo.name] = cookiecutter_repo
     # see cookiecutter.json
     return {'repos': cookiecutter_repos}
 
