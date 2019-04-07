@@ -523,13 +523,13 @@ We're sorry, there are no available releases reports for this project. Come back
 
 
 ### 25. docs-test-service
-No description available for docs-test-service.
+Dummy service to test automatic gh-pages generation on Travis
 
 GitHub link: [https://github.com/qbicsoftware/docs-test-service](https://github.com/qbicsoftware/docs-test-service)
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/docs-test-service/reports/development/index.html)
 
 
 #### Release reports
@@ -2695,4 +2695,4 @@ We're sorry, there are no available releases reports for this project. Come back
 
 
 
-<sub>Last update: 7 April 2019, 6:37 hrs.</sub>
+<sub>Last update: 7 April 2019, 7:26 hrs.</sub>
