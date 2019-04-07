@@ -1,1 +1,5 @@
 theme: {{ cookiecutter.theme }}
+title: {{ cookiecutter.title }}
+description: {{ cookiecutter.description }}
+logo: {{ cookiecutter.logo }}
+show_downloads: {{ cookiecutter.show_downloads }}
