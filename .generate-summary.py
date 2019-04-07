@@ -89,7 +89,7 @@ def main():
         shutil.move(os.path.join(cookiecutter_output_dir, GENERATED_DIR, f), working_dir)
 
     # push changes upstream to gh-pages
-    push_upstream(working_dir, args.pages_branch, args)
+    push_to_pages_branch(working_dir, args)
 
     # clean up
     if not args.skip_cleanup:
@@ -138,16 +138,12 @@ def clone_repos(git_repos, args):
         full_name = git_repo['full_name']
         tmp_dir = tempfile.mkdtemp()
         repo_dirs[full_name] = tmp_dir
-        # check if the branch exists before cloning a single branch of the repo
-        if 'name' in requests.get('{}/{}/branches/{}'.format(args.github_api_endpoint, full_name, args.pages_branch)).json():
-            try:            
-                clone_single_branch(full_name, tmp_dir, args.pages_branch)
-            except:
-                # we could parse the stdout to make sure that this failed because the pages branch does not exit...
-                # or we could just assume that this failed because the pages branch does not exist...
-                print('    WARNING: could not clone branch {} from repo {}. Are you sure that the branch exists?'.format(args.pages_branch, full_name))
-        else:
-            print('    Branch {} not found in repo {}'.format(args.pages_branch, full_name))
+        try:            
+            clone_single_branch(full_name, tmp_dir, args.pages_branch)
+        except:
+            # we could parse the stdout to make sure that this failed because the pages branch does not exit...
+            # or we could just assume that this failed because the pages branch does not exist...
+            print('    Could not clone branch {} from repo {}. The most probable cause is that the branch doesn\'t exist'.format(args.pages_branch, full_name))
 
     return repo_dirs
 
@@ -200,7 +196,7 @@ def build_extra_context(git_repos, repo_dirs, args):
                     else:
                         cookiecutter_repo_reports[f] = build_report_url(git_repo['name'], f, args)
         if not len(cookiecutter_repo_reports):
-            print('WARNING: no reports were found for repository {}'.format(git_repo['full_name']), file=sys.stderr)
+            print('No reports were found for {}'.format(git_repo['full_name']), file=sys.stderr)
         cookiecutter_repo['reports'] = cookiecutter_repo_reports                
         # use only the name to avoid parsing it on the README.md further down
         cookiecutter_repos[git_repo['name']] = cookiecutter_repo
@@ -209,7 +205,7 @@ def build_extra_context(git_repos, repo_dirs, args):
 
 
 # Adds, commits and pushes changes
-def push_upstream(working_dir, branch, args):
+def push_to_pages_branch(working_dir, args):
     if args.dry_run:
         print('(running in dry run mode) Local/remote repository will not be modified')
     else:
@@ -225,7 +221,7 @@ def push_upstream(working_dir, branch, args):
         execute(git_commit_command, 'Could not commit changes')
 
         # https://www.youtube.com/watch?v=vCadcBR95oU
-        execute(['git', '-C', working_dir, 'push', '-u', 'origin', branch], 'Could not push changes using provided credentials.')
+        execute(['git', '-C', working_dir, 'push', '-u', 'origin', args.pages_branch], 'Could not push changes using provided credentials.')
 
 
 # Whether it is safe to delete the given path, we won't delete important files/folders (such as .git)
@@ -234,8 +230,8 @@ def should_delete(path, args):
 
 
 # builds a report URL
-def build_report_url(submodule, report_dir, args):
-    return 'https://qbicsoftware.github.com/{}/{}/{}/index.html'.format(submodule, args.base_report_dir, report_dir)
+def build_report_url(repo_name, report_dir, args):
+    return 'https://qbicsoftware.github.com/{}/{}/{}/index.html'.format(repo_name, args.base_report_dir, report_dir)
 
 
 # Forcefully deletes recursively the passed file/folder using OS calls
