@@ -26,6 +26,8 @@ BASE_REPORT_DIR = 'reports'
 GENERATED_DIR = 'generated'
 # compiled regex to match files that should not be deleted when cleaning the working folder (in gh-pages)
 UNTOUCHABLE_FILES_MATCHER = re.compile('^\.git.*')
+# GitHub's REST API endpoint
+GITHUB_API_ENDPOINT = 'https://api.github.com'
 
 # parses arguments
 def main():
@@ -34,7 +36,7 @@ def main():
         help='Cookiecutter template directory.')
     parser.add_argument('-s', '--snapshots-reports-dir', default=SNAPSHOT_REPORTS_DIR,
         help='Name of the directory containing development (SNAPSHOT) reports.')
-    parser.add_argument('-d', '--dry-run', action='store_true',
+    parser.add_argument('--dry-run', action='store_true',
         help='Execute in dry run mode. No changes to this repo will be done in dry run mode.')
     parser.add_argument('--skip-cleanup', action='store_true',
         help='If used, temporary folders used as working directories will not be removed.')
@@ -48,6 +50,8 @@ def main():
         help='Name of the organization (or username) for which documentation will be built. All repos should be part of this organization (or username).')
     parser.add_argument('-b', '--base-report-dir', default=BASE_REPORT_DIR,
         help='Base directory where reports reside on each of the submodules.')
+    parser.add_argument('-g', '--github-api-endpoint', default=GITHUB_API_ENDPOINT,
+        help='GitHub\'s REST API endpoint.')
     parser.add_argument('repo_slug', 
         help='Slug of this repository, e.g., qbicsoftware/docs.')
     parser.add_argument('commit_message', nargs='+', 
@@ -105,14 +109,14 @@ def main():
 # see: https://developer.github.com/v3/repos/#list-organization-repositories
 def get_repos(args):
     print('Getting repositories from GitHub')
-    base_endpoint = 'https://api.github.com/orgs/qbicsoftware/repos?type=all&sort=full_name&direction=asc&page={}'
+    endpoint = '{}/orgs/qbicsoftware/repos?type=all&sort=full_name&direction=asc&per_page=100&page={}'
     repos = []
     # pages are 1-based 
     page_index = 1
     # Python: y u no have do-whiles?
     while True:
         print('    Retrieving page {}'.format(page_index))
-        repos_page = requests.get(base_endpoint.format(page_index)).json()
+        repos_page = requests.get(endpoint.format(args.github_api_endpoint, page_index)).json()
         # if repos_page is empty, it means that we ran out of pages, so we can exit this loop
         if not repos_page:
             break
@@ -128,18 +132,23 @@ def clone_repos(git_repos, args):
     # we have to clone each of the repos (we use a temp folder) and checkout their gh-pages branch
     # keep track of which repo will be cloned in which directory
     # we are ignoring this repo (args.repo_slug), because we know that this repo doesn't have reports!
+    print('Cloning repositories...')
     repo_dirs = {}
     for git_repo in git_repos:
         full_name = git_repo['full_name']
-        if full_name != args.repo_slug:
-            try:
-                tmp_dir = tempfile.mkdtemp()
-                repo_dirs[full_name] = tmp_dir
+        tmp_dir = tempfile.mkdtemp()
+        repo_dirs[full_name] = tmp_dir
+        # check if the branch exists before cloning a single branch of the repo
+        if 'name' in requests.get('{}/{}/branches/{}'.format(args.github_api_endpoint, full_name, args.pages_branch)).json():
+            try:            
                 clone_single_branch(full_name, tmp_dir, args.pages_branch)
             except:
                 # we could parse the stdout to make sure that this failed because the pages branch does not exit...
                 # or we could just assume that this failed because the pages branch does not exist...
-                print('WARNING: could not clone branch {} from repo {}. Are you sure that the branch exists?'.format(args.pages_branch, full_name))
+                print('    WARNING: could not clone branch {} from repo {}. Are you sure that the branch exists?'.format(args.pages_branch, full_name))
+        else:
+            print('    Branch {} not found in repo {}'.format(args.pages_branch, full_name))
+
     return repo_dirs
 
 # Builds a git remote using environment variables for credentials and the repo slug
@@ -149,7 +158,7 @@ def build_remote(args):
 
 # Clones a single branch from the remote repository into the working directory
 def clone_single_branch(repo_slug, working_dir, custom_remote, branch):
-    print('Cloning {}, branch {}, into temporary folder {}'.format(repo_slug, branch, working_dir))    
+    print('Cloning {}, branch {}, into temporary folder {}'.format(repo_slug, branch, working_dir))
     execute(['git', 'clone', '--single-branch', '--branch', branch, custom_remote, working_dir], 
                 'Could not clone {} in directory {}'.format(repo_slug, working_dir))
 
