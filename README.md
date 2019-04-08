@@ -1147,7 +1147,7 @@ GitHub link: [https://github.com/qbicsoftware/nexus-listener-service](https://gi
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/nexus-listener-service/reports/development/index.html)
 
 
 #### Release reports
@@ -1413,7 +1413,7 @@ GitHub link: [https://github.com/qbicsoftware/portal-utils-lib](https://github.c
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/portal-utils-lib/reports/development/index.html)
 
 
 #### Release reports
@@ -1539,7 +1539,7 @@ GitHub link: [https://github.com/qbicsoftware/projectbrowser-portlet](https://gi
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/projectbrowser-portlet/reports/development/index.html)
 
 
 #### Release reports
@@ -2365,7 +2365,7 @@ GitHub link: [https://github.com/qbicsoftware/statistics-cli](https://github.com
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/statistics-cli/reports/development/index.html)
 
 
 #### Release reports
@@ -2379,7 +2379,7 @@ GitHub link: [https://github.com/qbicsoftware/statistics-plugin](https://github.
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/statistics-plugin/reports/development/index.html)
 
 
 #### Release reports
@@ -2393,7 +2393,7 @@ GitHub link: [https://github.com/qbicsoftware/statistics-portlet](https://github
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/statistics-portlet/reports/development/index.html)
 
 
 #### Release reports
@@ -2711,4 +2711,4 @@ We're sorry, there are no available releases reports for this project. Come back
 
 
 
-<sub>Last update: 8 April 2019, 4:22 hrs.</sub>
+<sub>Last update: 8 April 2019, 7:14 hrs.</sub>
