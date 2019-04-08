@@ -56,7 +56,7 @@ def main():
     # get the list of repos from GitHub and clone them
     # remove this repo from the list of repos, this project's documentation is on the master branch's README.md file
     # TODO: maybe add a list of ignored repos? let's just shame report-less repos!
-    repos = [repo for repo in get_repos(args) if repo.full_name != args.repo_slug]
+    repos = [repo for repo in get_repos(args) if repo.full_name != args.repo_slug and not repo.archived]
     repo_dirs = clone_repos(repos, args)
 
     # prepare to use cookiecutter
