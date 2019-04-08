@@ -27,7 +27,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
     {%- for report_name, report_link in repo['reports']|dictsort if report_name != 'development' %}
   - [{{ report_name }}]({{ report_link }})
     {%- else %}
-We're sorry, there are no available releases reports for this project. Come back soon!
+We're sorry, there are no available release reports for this project. Come back soon!
     {%- endfor %}
 
 {% endfor %}
