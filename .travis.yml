@@ -30,7 +30,7 @@ install:
 # keeping complicated scripts separate is not much, but it's honest work
 script: ./.generate-summary.py $TRAVIS_REPO_SLUG "[skip travis] Updated summary" "This commit was performed from travis-ci.com using a personal access key" "Build ID $TRAVIS_BUILD_ID" "Job ID TRAVIS_JOB_ID" "Branch $TRAVIS_BRANCH" "Log of this build found at $TRAVIS_JOB_WEB_URL"
 
-# GitHub access credentials (username, acces token)
+# GitHub access credentials (acces token)
 env:
   global:
     - secure: "y/tY8CohxBzjLrnYEfMA0hk1ovTmeny/XcDWHEltZhEHqhwd9x+EqfhO7UAxQ/+Ax9tc7uUgKtdfrzBhbUMA6jj+27RIo6SX1JbJI2gzNK6DeQ76R3cyPGFXSX1yFYqrAvAgR+Xr3qiP9nQrhYMggziPZFBOQQOyiz2N0NCjk7XktOTpMgOQUA/q2RFkDsSMu5z9AJmcVB/NfIQpl2l7YETFysIl9JpLgw6ZTaDxhXDbbl6fDqMBdGpHj6+r52kq+ebJga7mQOMMKwexcamBXhWIvl9AJnohEbxTL1X/37HEWYvQYH6QP7gxKyFqXRXb4iNGi0XvNKnmxwSr/7DrMXrtxJtkhIiPljyvk2Odl9JOAL1KFVoedfIAOQQBV6fiRoGwv3OpmunltN8c/al7ks/B4UmITyqhzKsiuVu0OI4ew/MIRw09qGZ3Ze0cl9ze8rHmc7bMQUInofTzOsIDt47fZINLRyMSnNnTR58gtJySezpccjkK5C+HB1EhTmw5oJyL7ELlFxqkrt+FWqW12s/j7AvuF+q0y47h8mJ2kwxif5iLvidoqkZYP7udtbs+O3vqlvsgBfYNdmej/6US5fGyEPrJySvox7fcSTLYhpeX4IcBgf7S+ChxCLTsfGnxSzRIjMXEGMCwV8PT2OEYfjVQEdILujiJuN2XDAQSDiA="
