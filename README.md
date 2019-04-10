@@ -6,9 +6,9 @@ This project generates a [summary](https://qbicsoftware.github.io/docs/) for all
 ## How to get your reports published
 If you generated your report using our [cookecutter-templates-cli tool](https://github.com/qbicsoftware/cookiecutter-templates-cli), then you're good to go. But if you have a non-Java project and still want your reports automatically picked up by the summary, read along.
 
-We are using [GitHub pages](https://pages.github.com/) to host our reports. Everything report-related must be pushed to the `gh-pages` of your repository. If you're so inclined, you can check out [.generate-reports.py](https://github.com/qbicsoftware/cookiecutter-templates-cli/blob/development/common-files/%7B%7B%20cookiecutter.artifact_id%20%7D%7D/.generate-reports.py), the script that automatically generates reports. 
+We are using [GitHub pages](https://pages.github.com/) to host our reports. Everything report-related must be pushed to the `gh-pages` branch of your repository. If you're so inclined, you can check out [.generate-reports.py](https://github.com/qbicsoftware/cookiecutter-templates-cli/blob/development/common-files/%7B%7B%20cookiecutter.artifact_id%20%7D%7D/.generate-reports.py), the script that automatically generates reports. 
 
-When the summary is being generated, a semi-strict structure is required for a report to be included. The root folder of your `gh-pages` should look as follows:
+When the summary is being generated, a semi-strict structure is required for a report to be included. The root folder of your `gh-pages` branch should look as follows:
 
 ```
  reports                   
