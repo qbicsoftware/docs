@@ -27,4 +27,4 @@ When the summary is being generated, a semi-strict structure is required for a r
 
 As you can see, only one "development" version of the reports is assumed. This is presented as a _SNAPSHOT_ report. All other folders are displayed as _Release reports_. Each folder must contain, at the very least, an `index.html` file. The rest is up to you.
 
-The summary is generated once per day in [Travis-CI](http://travis-ci.com). If you really want your pr
+The summary is generated once per day in [Travis-CI](http://travis-ci.com) by a nightly build. If you can't wait that long, you can trigger a new build using [Travis-CI's](http://travis-ci.com) UI.
