@@ -914,7 +914,7 @@ GitHub link: [https://github.com/qbicsoftware/micronaut-utils-lib](https://githu
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/micronaut-utils-lib/reports/development/index.html)
 
 
 #### Release reports
@@ -2380,4 +2380,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 7 May 2019, 2:25 hrs.</sub>
+<sub>Last update: 7 May 2019, 11:06 hrs.</sub>
