@@ -330,7 +330,7 @@ GitHub link: [https://github.com/qbicsoftware/core-utils-lib](https://github.com
 
 
 #### Release reports
-We're sorry, there are no available release reports for this project. Come back soon!
+  - [1.1.0](https://qbicsoftware.github.com/core-utils-lib/reports/1.1.0/index.html)
 
 
 ### 13. CSV-Experiment-Parser
@@ -1310,7 +1310,7 @@ GitHub link: [https://github.com/qbicsoftware/portal-utils-lib](https://github.c
 
 
 #### Release reports
-We're sorry, there are no available release reports for this project. Come back soon!
+  - [1.6.0](https://qbicsoftware.github.com/portal-utils-lib/reports/1.6.0/index.html)
 
 
 ### 83. postman-cli
@@ -2380,4 +2380,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 11 May 2019, 2:27 hrs.</sub>
+<sub>Last update: 12 May 2019, 2:27 hrs.</sub>
