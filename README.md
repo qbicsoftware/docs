@@ -1408,6 +1408,7 @@ GitHub link: [https://github.com/qbicsoftware/projectbrowser-portlet](https://gi
 
 #### Release reports
   - [1.9.2](https://qbicsoftware.github.com/projectbrowser-portlet/reports/1.9.2/index.html)
+  - [1.9.3](https://qbicsoftware.github.com/projectbrowser-portlet/reports/1.9.3/index.html)
 
 
 ### 90. projectwizard-portlet
@@ -2365,4 +2366,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 27 May 2019, 2:35 hrs.</sub>
+<sub>Last update: 28 May 2019, 2:35 hrs.</sub>
