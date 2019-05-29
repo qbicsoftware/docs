@@ -1019,13 +1019,13 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 ### 62. nextflow-logger-service
-Consumes Nextflow weblog payloads via REST and stores them in a database.
+Consumes Nextflow weblog payloads via Http REST and stores them in a database.
 
 GitHub link: [https://github.com/qbicsoftware/nextflow-logger-service](https://github.com/qbicsoftware/nextflow-logger-service)
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/nextflow-logger-service/reports/development/index.html)
 
 
 #### Release reports
@@ -2366,4 +2366,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 28 May 2019, 2:35 hrs.</sub>
+<sub>Last update: 29 May 2019, 2:36 hrs.</sub>
