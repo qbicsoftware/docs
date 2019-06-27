@@ -131,38 +131,39 @@ Project reports are generated automatically during builds, while this summary is
   - [124. resource-management-data](#124-resource-management-data)
   - [125. rmageddon-cli](#125-rmageddon-cli)
   - [126. rnacount](#126-rnacount)
-  - [127. rnamapping](#127-rnamapping)
-  - [128. rnaseq](#128-rnaseq)
-  - [129. rnaseq-power-cli](#129-rnaseq-power-cli)
-  - [130. rvaadin-lib](#130-rvaadin-lib)
-  - [131. sample-tracking-service](#131-sample-tracking-service)
-  - [132. sarek-starter-cli](#132-sarek-starter-cli)
-  - [133. slideshow-portlet](#133-slideshow-portlet)
-  - [134. somatic-variantcalling-workflow](#134-somatic-variantcalling-workflow)
-  - [135. spark-benchmark-cli](#135-spark-benchmark-cli)
-  - [136. spark-service](#136-spark-service)
-  - [137. specs](#137-specs)
-  - [138. statistics-cli](#138-statistics-cli)
-  - [139. statistics-plugin](#139-statistics-plugin)
-  - [140. statistics-portlet](#140-statistics-portlet)
-  - [141. templatebuilder](#141-templatebuilder)
-  - [142. trystuff](#142-trystuff)
-  - [143. tsspredator-portlet](#143-tsspredator-portlet)
-  - [144. tsspredator-ui](#144-tsspredator-ui)
-  - [145. ukt-diagnostics-id-portlet](#145-ukt-diagnostics-id-portlet)
-  - [146. user-db-portlet](#146-user-db-portlet)
-  - [147. UserDBTools](#147-UserDBTools)
-  - [148. VaadinSampleTracking](#148-VaadinSampleTracking)
-  - [149. vaccine-designer-portlet](#149-vaccine-designer-portlet)
-  - [150. variant-annotation-workflow](#150-variant-annotation-workflow)
-  - [151. variantcalling](#151-variantcalling)
-  - [152. vmcall](#152-vmcall)
-  - [153. voronoi-treemap-cli](#153-voronoi-treemap-cli)
-  - [154. voronoi-treemap-portlet](#154-voronoi-treemap-portlet)
-  - [155. voronoi-treemaps-tsv-creator](#155-voronoi-treemaps-tsv-creator)
-  - [156. workflow-submission-schema](#156-workflow-submission-schema)
-  - [157. workflow_api](#157-workflow_api)
-  - [158. xml-manager-lib](#158-xml-manager-lib)
+  - [127. rnadeseq](#127-rnadeseq)
+  - [128. rnamapping](#128-rnamapping)
+  - [129. rnaseq](#129-rnaseq)
+  - [130. rnaseq-power-cli](#130-rnaseq-power-cli)
+  - [131. rvaadin-lib](#131-rvaadin-lib)
+  - [132. sample-tracking-service](#132-sample-tracking-service)
+  - [133. sarek-starter-cli](#133-sarek-starter-cli)
+  - [134. slideshow-portlet](#134-slideshow-portlet)
+  - [135. somatic-variantcalling-workflow](#135-somatic-variantcalling-workflow)
+  - [136. spark-benchmark-cli](#136-spark-benchmark-cli)
+  - [137. spark-service](#137-spark-service)
+  - [138. specs](#138-specs)
+  - [139. statistics-cli](#139-statistics-cli)
+  - [140. statistics-plugin](#140-statistics-plugin)
+  - [141. statistics-portlet](#141-statistics-portlet)
+  - [142. templatebuilder](#142-templatebuilder)
+  - [143. trystuff](#143-trystuff)
+  - [144. tsspredator-portlet](#144-tsspredator-portlet)
+  - [145. tsspredator-ui](#145-tsspredator-ui)
+  - [146. ukt-diagnostics-id-portlet](#146-ukt-diagnostics-id-portlet)
+  - [147. user-db-portlet](#147-user-db-portlet)
+  - [148. UserDBTools](#148-UserDBTools)
+  - [149. VaadinSampleTracking](#149-VaadinSampleTracking)
+  - [150. vaccine-designer-portlet](#150-vaccine-designer-portlet)
+  - [151. variant-annotation-workflow](#151-variant-annotation-workflow)
+  - [152. variantcalling](#152-variantcalling)
+  - [153. vmcall](#153-vmcall)
+  - [154. voronoi-treemap-cli](#154-voronoi-treemap-cli)
+  - [155. voronoi-treemap-portlet](#155-voronoi-treemap-portlet)
+  - [156. voronoi-treemaps-tsv-creator](#156-voronoi-treemaps-tsv-creator)
+  - [157. workflow-submission-schema](#157-workflow-submission-schema)
+  - [158. workflow_api](#158-workflow_api)
+  - [159. xml-manager-lib](#159-xml-manager-lib)
 
 
 ### 1. 16Smetagenomics-taxonomic-profiling
@@ -1930,7 +1931,21 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 127. rnamapping
+### 127. rnadeseq
+Downstream differential gene expression analysis with DESeq2 package
+
+GitHub link: [https://github.com/qbicsoftware/rnadeseq](https://github.com/qbicsoftware/rnadeseq)
+
+
+#### SNAPSHOT reports
+We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+
+
+#### Release reports
+We're sorry, there are no available release reports for this project. Come back soon!
+
+
+### 128. rnamapping
 RNAseq workflow
 
 GitHub link: [https://github.com/qbicsoftware/rnamapping](https://github.com/qbicsoftware/rnamapping)
@@ -1944,7 +1959,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 128. rnaseq
+### 129. rnaseq
 No description available for rnaseq.
 
 GitHub link: [https://github.com/qbicsoftware/rnaseq](https://github.com/qbicsoftware/rnaseq)
@@ -1958,7 +1973,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 129. rnaseq-power-cli
+### 130. rnaseq-power-cli
 Container to perform sample size computations based on RnaSeqSampleSize
 
 GitHub link: [https://github.com/qbicsoftware/rnaseq-power-cli](https://github.com/qbicsoftware/rnaseq-power-cli)
@@ -1972,7 +1987,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 130. rvaadin-lib
+### 131. rvaadin-lib
 A Java library to combine Vaadin Web framework with the R language
 
 GitHub link: [https://github.com/qbicsoftware/rvaadin-lib](https://github.com/qbicsoftware/rvaadin-lib)
@@ -1986,7 +2001,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 131. sample-tracking-service
+### 132. sample-tracking-service
 Service that implements a sample tracking interface.
 
 GitHub link: [https://github.com/qbicsoftware/sample-tracking-service](https://github.com/qbicsoftware/sample-tracking-service)
@@ -2000,7 +2015,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 132. sarek-starter-cli
+### 133. sarek-starter-cli
 Various python scripts for bioinformatics data analysis and pre-processing
 
 GitHub link: [https://github.com/qbicsoftware/sarek-starter-cli](https://github.com/qbicsoftware/sarek-starter-cli)
@@ -2014,7 +2029,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 133. slideshow-portlet
+### 134. slideshow-portlet
 No description available for slideshow-portlet.
 
 GitHub link: [https://github.com/qbicsoftware/slideshow-portlet](https://github.com/qbicsoftware/slideshow-portlet)
@@ -2028,7 +2043,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 134. somatic-variantcalling-workflow
+### 135. somatic-variantcalling-workflow
 Workflow scripts for somatic variant calling workflow (Strelka)
 
 GitHub link: [https://github.com/qbicsoftware/somatic-variantcalling-workflow](https://github.com/qbicsoftware/somatic-variantcalling-workflow)
@@ -2042,7 +2057,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 135. spark-benchmark-cli
+### 136. spark-benchmark-cli
 No description available for spark-benchmark-cli.
 
 GitHub link: [https://github.com/qbicsoftware/spark-benchmark-cli](https://github.com/qbicsoftware/spark-benchmark-cli)
@@ -2056,7 +2071,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 136. spark-service
+### 137. spark-service
 No description available for spark-service.
 
 GitHub link: [https://github.com/qbicsoftware/spark-service](https://github.com/qbicsoftware/spark-service)
@@ -2070,7 +2085,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 137. specs
+### 138. specs
 SPEC files for RPM packages
 
 GitHub link: [https://github.com/qbicsoftware/specs](https://github.com/qbicsoftware/specs)
@@ -2084,7 +2099,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 138. statistics-cli
+### 139. statistics-cli
 This tools is responsible for data retrieval and formatting, in order to visualize data on our homepage.
 
 GitHub link: [https://github.com/qbicsoftware/statistics-cli](https://github.com/qbicsoftware/statistics-cli)
@@ -2098,7 +2113,7 @@ GitHub link: [https://github.com/qbicsoftware/statistics-cli](https://github.com
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 139. statistics-plugin
+### 140. statistics-plugin
 This repo contains shared classes between the qbic-statistics portlet and the statistics-data-retrieval repo
 
 GitHub link: [https://github.com/qbicsoftware/statistics-plugin](https://github.com/qbicsoftware/statistics-plugin)
@@ -2112,7 +2127,7 @@ GitHub link: [https://github.com/qbicsoftware/statistics-plugin](https://github.
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 140. statistics-portlet
+### 141. statistics-portlet
 No description available for statistics-portlet.
 
 GitHub link: [https://github.com/qbicsoftware/statistics-portlet](https://github.com/qbicsoftware/statistics-portlet)
@@ -2126,7 +2141,7 @@ GitHub link: [https://github.com/qbicsoftware/statistics-portlet](https://github
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 141. templatebuilder
+### 142. templatebuilder
 No description available for templatebuilder.
 
 GitHub link: [https://github.com/qbicsoftware/templatebuilder](https://github.com/qbicsoftware/templatebuilder)
@@ -2140,7 +2155,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 142. trystuff
+### 143. trystuff
 A short git intro
 
 GitHub link: [https://github.com/qbicsoftware/trystuff](https://github.com/qbicsoftware/trystuff)
@@ -2154,7 +2169,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 143. tsspredator-portlet
+### 144. tsspredator-portlet
 QBiC Liferay Vaadin Portlet for TSSpredator
 
 GitHub link: [https://github.com/qbicsoftware/tsspredator-portlet](https://github.com/qbicsoftware/tsspredator-portlet)
@@ -2168,7 +2183,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 144. tsspredator-ui
+### 145. tsspredator-ui
 A Vaadin portlet representing a web user interface for TSSpredator
 
 GitHub link: [https://github.com/qbicsoftware/tsspredator-ui](https://github.com/qbicsoftware/tsspredator-ui)
@@ -2182,7 +2197,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 145. ukt-diagnostics-id-portlet
+### 146. ukt-diagnostics-id-portlet
 A portlet that generates patient and sample IDs per request for UKT diagnostics purposes
 
 GitHub link: [https://github.com/qbicsoftware/ukt-diagnostics-id-portlet](https://github.com/qbicsoftware/ukt-diagnostics-id-portlet)
@@ -2196,7 +2211,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 146. user-db-portlet
+### 147. user-db-portlet
 User DB Tools Portlet enables users to add people and affiliations to the SQL user database.
 
 GitHub link: [https://github.com/qbicsoftware/user-db-portlet](https://github.com/qbicsoftware/user-db-portlet)
@@ -2210,7 +2225,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 147. UserDBTools
+### 148. UserDBTools
 No description available for UserDBTools.
 
 GitHub link: [https://github.com/qbicsoftware/UserDBTools](https://github.com/qbicsoftware/UserDBTools)
@@ -2224,7 +2239,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 148. VaadinSampleTracking
+### 149. VaadinSampleTracking
 Testgrounds for adding sample tracking to a vaadin UI
 
 GitHub link: [https://github.com/qbicsoftware/VaadinSampleTracking](https://github.com/qbicsoftware/VaadinSampleTracking)
@@ -2238,7 +2253,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 149. vaccine-designer-portlet
+### 150. vaccine-designer-portlet
 A portlet for the interactive design of individualized vaccines
 
 GitHub link: [https://github.com/qbicsoftware/vaccine-designer-portlet](https://github.com/qbicsoftware/vaccine-designer-portlet)
@@ -2252,7 +2267,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 150. variant-annotation-workflow
+### 151. variant-annotation-workflow
 Workflow scripts of the variant annotation workflow
 
 GitHub link: [https://github.com/qbicsoftware/variant-annotation-workflow](https://github.com/qbicsoftware/variant-annotation-workflow)
@@ -2266,7 +2281,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 151. variantcalling
+### 152. variantcalling
 Repository for variant calling pipeline using FreeBayes
 
 GitHub link: [https://github.com/qbicsoftware/variantcalling](https://github.com/qbicsoftware/variantcalling)
@@ -2280,7 +2295,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 152. vmcall
+### 153. vmcall
 No description available for vmcall.
 
 GitHub link: [https://github.com/qbicsoftware/vmcall](https://github.com/qbicsoftware/vmcall)
@@ -2294,7 +2309,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 153. voronoi-treemap-cli
+### 154. voronoi-treemap-cli
 No description available for voronoi-treemap-cli.
 
 GitHub link: [https://github.com/qbicsoftware/voronoi-treemap-cli](https://github.com/qbicsoftware/voronoi-treemap-cli)
@@ -2308,7 +2323,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 154. voronoi-treemap-portlet
+### 155. voronoi-treemap-portlet
  Visualization of hierarchical annotation data with Voronoi-Treemaps using the Vaadin framwork
 
 GitHub link: [https://github.com/qbicsoftware/voronoi-treemap-portlet](https://github.com/qbicsoftware/voronoi-treemap-portlet)
@@ -2322,7 +2337,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 155. voronoi-treemaps-tsv-creator
+### 156. voronoi-treemaps-tsv-creator
 Converts a table like derived from DAVID with columns like "Term", "Genes" and a table with the Gene/Protein names plus data column (Expression/Ratio/p-value, etc) into a tsv file that can be processed for Voronoi-Treemap creation
 
 GitHub link: [https://github.com/qbicsoftware/voronoi-treemaps-tsv-creator](https://github.com/qbicsoftware/voronoi-treemaps-tsv-creator)
@@ -2336,7 +2351,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 156. workflow-submission-schema
+### 157. workflow-submission-schema
 A humble try to create a JSON scheme for workflow submission requests.
 
 GitHub link: [https://github.com/qbicsoftware/workflow-submission-schema](https://github.com/qbicsoftware/workflow-submission-schema)
@@ -2350,7 +2365,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 157. workflow_api
+### 158. workflow_api
 No description available for workflow_api.
 
 GitHub link: [https://github.com/qbicsoftware/workflow_api](https://github.com/qbicsoftware/workflow_api)
@@ -2364,7 +2379,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 158. xml-manager-lib
+### 159. xml-manager-lib
 Reading and writing of specific openBIS xml properties
 
 GitHub link: [https://github.com/qbicsoftware/xml-manager-lib](https://github.com/qbicsoftware/xml-manager-lib)
@@ -2381,4 +2396,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 26 June 2019, 2:51 hrs.</sub>
+<sub>Last update: 27 June 2019, 2:52 hrs.</sub>
