@@ -138,9 +138,9 @@ Project reports are generated automatically during builds, while this summary is
   - [131. rvaadin-lib](#131-rvaadin-lib)
   - [132. sample-tracking-service](#132-sample-tracking-service)
   - [133. sarek-starter-cli](#133-sarek-starter-cli)
-  - [134. slideshow-portlet](#134-slideshow-portlet)
-  - [135. somatic-variantcalling-workflow](#135-somatic-variantcalling-workflow)
-  - [136. spark-benchmark-cli](#136-spark-benchmark-cli)
+  - [134. scark-cli](#134-scark-cli)
+  - [135. slideshow-portlet](#135-slideshow-portlet)
+  - [136. somatic-variantcalling-workflow](#136-somatic-variantcalling-workflow)
   - [137. spark-service](#137-spark-service)
   - [138. specs](#138-specs)
   - [139. statistics-cli](#139-statistics-cli)
@@ -2029,7 +2029,21 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 134. slideshow-portlet
+### 134. scark-cli
+No description available for scark-cli.
+
+GitHub link: [https://github.com/qbicsoftware/scark-cli](https://github.com/qbicsoftware/scark-cli)
+
+
+#### SNAPSHOT reports
+We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+
+
+#### Release reports
+We're sorry, there are no available release reports for this project. Come back soon!
+
+
+### 135. slideshow-portlet
 No description available for slideshow-portlet.
 
 GitHub link: [https://github.com/qbicsoftware/slideshow-portlet](https://github.com/qbicsoftware/slideshow-portlet)
@@ -2043,24 +2057,10 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 135. somatic-variantcalling-workflow
+### 136. somatic-variantcalling-workflow
 Workflow scripts for somatic variant calling workflow (Strelka)
 
 GitHub link: [https://github.com/qbicsoftware/somatic-variantcalling-workflow](https://github.com/qbicsoftware/somatic-variantcalling-workflow)
-
-
-#### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
-
-
-#### Release reports
-We're sorry, there are no available release reports for this project. Come back soon!
-
-
-### 136. spark-benchmark-cli
-No description available for spark-benchmark-cli.
-
-GitHub link: [https://github.com/qbicsoftware/spark-benchmark-cli](https://github.com/qbicsoftware/spark-benchmark-cli)
 
 
 #### SNAPSHOT reports
@@ -2396,4 +2396,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 9 July 2019, 2:57 hrs.</sub>
+<sub>Last update: 10 July 2019, 2:57 hrs.</sub>
