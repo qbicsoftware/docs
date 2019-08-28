@@ -2067,11 +2067,12 @@ GitHub link: [https://github.com/qbicsoftware/scark-cli](https://github.com/qbic
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/scark-cli/reports/development/index.html)
 
 
 #### Release reports
-We're sorry, there are no available release reports for this project. Come back soon!
+  - [1.0.0](https://qbicsoftware.github.com/scark-cli/reports/1.0.0/index.html)
+  - [1.1.0](https://qbicsoftware.github.com/scark-cli/reports/1.1.0/index.html)
 
 
 ### 137. slideshow-portlet
@@ -2109,7 +2110,7 @@ GitHub link: [https://github.com/qbicsoftware/spark-service](https://github.com/
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/spark-service/reports/development/index.html)
 
 
 #### Release reports
@@ -2427,4 +2428,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 28 August 2019, 10:31 hrs.</sub>
+<sub>Last update: 28 August 2019, 10:39 hrs.</sub>
