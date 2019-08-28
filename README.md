@@ -2113,7 +2113,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 
 
 #### Release reports
-We're sorry, there are no available release reports for this project. Come back soon!
+  - [1.0.0](https://qbicsoftware.github.com/spark-service/reports/1.0.0/index.html)
 
 
 ### 140. specs
@@ -2427,4 +2427,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 28 August 2019, 3:23 hrs.</sub>
+<sub>Last update: 28 August 2019, 10:31 hrs.</sub>
