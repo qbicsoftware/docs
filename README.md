@@ -922,7 +922,7 @@ GitHub link: [https://github.com/qbicsoftware/micronaut-utils-lib](https://githu
 
 
 #### Release reports
-We're sorry, there are no available release reports for this project. Come back soon!
+  - [1.0.0](https://qbicsoftware.github.com/micronaut-utils-lib/reports/1.0.0/index.html)
 
 
 ### 55. mqparams
@@ -2443,4 +2443,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 24 September 2019, 3:38 hrs.</sub>
+<sub>Last update: 25 September 2019, 3:38 hrs.</sub>
