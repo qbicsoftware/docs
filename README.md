@@ -322,6 +322,7 @@ GitHub link: [https://github.com/qbicsoftware/core-utils-lib](https://github.com
 
 #### Release reports
   - [1.1.0](https://qbicsoftware.github.com/core-utils-lib/reports/1.1.0/index.html)
+  - [1.2.1](https://qbicsoftware.github.com/core-utils-lib/reports/1.2.1/index.html)
 
 
 ### 12. CSV-Experiment-Parser
@@ -1063,7 +1064,7 @@ GitHub link: [https://github.com/qbicsoftware/nextflow-logger-service](https://g
 
 
 #### Release reports
-We're sorry, there are no available release reports for this project. Come back soon!
+  - [1.0.0](https://qbicsoftware.github.com/nextflow-logger-service/reports/1.0.0/index.html)
 
 
 ### 65. nexus-listener-service
@@ -2458,4 +2459,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 15 October 2019, 3:50 hrs.</sub>
+<sub>Last update: 16 October 2019, 3:50 hrs.</sub>
