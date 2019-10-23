@@ -166,9 +166,10 @@ Project reports are generated automatically during builds, while this summary is
   - [159. voronoi-treemap-cli](#159-voronoi-treemap-cli)
   - [160. voronoi-treemap-portlet](#160-voronoi-treemap-portlet)
   - [161. voronoi-treemaps-tsv-creator](#161-voronoi-treemaps-tsv-creator)
-  - [162. workflow-submission-schema](#162-workflow-submission-schema)
-  - [163. workflow_api](#163-workflow_api)
-  - [164. xml-manager-lib](#164-xml-manager-lib)
+  - [162. workflow-sarek](#162-workflow-sarek)
+  - [163. workflow-submission-schema](#163-workflow-submission-schema)
+  - [164. workflow_api](#164-workflow_api)
+  - [165. xml-manager-lib](#165-xml-manager-lib)
 
 
 ### 1. 16Smetagenomics-taxonomic-profiling
@@ -2429,7 +2430,21 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 162. workflow-submission-schema
+### 162. workflow-sarek
+Detect germline or somatic variants from normal or tumour/normal whole-genome or targeted sequencing. This is an archived version for a paper, please use https://github.com/nf-core/sarek for new projects!
+
+GitHub link: [https://github.com/qbicsoftware/workflow-sarek](https://github.com/qbicsoftware/workflow-sarek)
+
+
+#### SNAPSHOT reports
+We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+
+
+#### Release reports
+We're sorry, there are no available release reports for this project. Come back soon!
+
+
+### 163. workflow-submission-schema
 A humble try to create a JSON scheme for workflow submission requests.
 
 GitHub link: [https://github.com/qbicsoftware/workflow-submission-schema](https://github.com/qbicsoftware/workflow-submission-schema)
@@ -2443,7 +2458,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 163. workflow_api
+### 164. workflow_api
 No description available for workflow_api.
 
 GitHub link: [https://github.com/qbicsoftware/workflow_api](https://github.com/qbicsoftware/workflow_api)
@@ -2457,7 +2472,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 164. xml-manager-lib
+### 165. xml-manager-lib
 Reading and writing of specific openBIS xml properties
 
 GitHub link: [https://github.com/qbicsoftware/xml-manager-lib](https://github.com/qbicsoftware/xml-manager-lib)
@@ -2474,4 +2489,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 22 October 2019, 3:52 hrs.</sub>
+<sub>Last update: 23 October 2019, 3:52 hrs.</sub>
