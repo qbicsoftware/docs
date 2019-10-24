@@ -1347,6 +1347,7 @@ GitHub link: [https://github.com/qbicsoftware/portal-utils-lib](https://github.c
 
 #### Release reports
   - [1.6.0](https://qbicsoftware.github.com/portal-utils-lib/reports/1.6.0/index.html)
+  - [1.7.0](https://qbicsoftware.github.com/portal-utils-lib/reports/1.7.0/index.html)
 
 
 ### 85. postman-cli
@@ -2489,4 +2490,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 23 October 2019, 3:52 hrs.</sub>
+<sub>Last update: 24 October 2019, 3:53 hrs.</sub>
