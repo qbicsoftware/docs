@@ -159,18 +159,19 @@ Project reports are generated automatically during builds, while this summary is
   - [152. ukt-diagnostics-id-portlet](#152-ukt-diagnostics-id-portlet)
   - [153. user-db-portlet](#153-user-db-portlet)
   - [154. UserDBTools](#154-UserDBTools)
-  - [155. VaadinSampleTracking](#155-VaadinSampleTracking)
-  - [156. vaccine-designer-portlet](#156-vaccine-designer-portlet)
-  - [157. variant-annotation-workflow](#157-variant-annotation-workflow)
-  - [158. variantcalling](#158-variantcalling)
-  - [159. vmcall](#159-vmcall)
-  - [160. voronoi-treemap-cli](#160-voronoi-treemap-cli)
-  - [161. voronoi-treemap-portlet](#161-voronoi-treemap-portlet)
-  - [162. voronoi-treemaps-tsv-creator](#162-voronoi-treemaps-tsv-creator)
-  - [163. workflow-sarek](#163-workflow-sarek)
-  - [164. workflow-submission-schema](#164-workflow-submission-schema)
-  - [165. workflow_api](#165-workflow_api)
-  - [166. xml-manager-lib](#166-xml-manager-lib)
+  - [155. vaadin14-showcase-portlet](#155-vaadin14-showcase-portlet)
+  - [156. VaadinSampleTracking](#156-VaadinSampleTracking)
+  - [157. vaccine-designer-portlet](#157-vaccine-designer-portlet)
+  - [158. variant-annotation-workflow](#158-variant-annotation-workflow)
+  - [159. variantcalling](#159-variantcalling)
+  - [160. vmcall](#160-vmcall)
+  - [161. voronoi-treemap-cli](#161-voronoi-treemap-cli)
+  - [162. voronoi-treemap-portlet](#162-voronoi-treemap-portlet)
+  - [163. voronoi-treemaps-tsv-creator](#163-voronoi-treemaps-tsv-creator)
+  - [164. workflow-sarek](#164-workflow-sarek)
+  - [165. workflow-submission-schema](#165-workflow-submission-schema)
+  - [166. workflow_api](#166-workflow_api)
+  - [167. xml-manager-lib](#167-xml-manager-lib)
 
 
 ### 1. 16Smetagenomics-taxonomic-profiling
@@ -2334,7 +2335,21 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 155. VaadinSampleTracking
+### 155. vaadin14-showcase-portlet
+Integration test for the new LTS Vaadin 14
+
+GitHub link: [https://github.com/qbicsoftware/vaadin14-showcase-portlet](https://github.com/qbicsoftware/vaadin14-showcase-portlet)
+
+
+#### SNAPSHOT reports
+We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+
+
+#### Release reports
+We're sorry, there are no available release reports for this project. Come back soon!
+
+
+### 156. VaadinSampleTracking
 Testgrounds for adding sample tracking to a vaadin UI
 
 GitHub link: [https://github.com/qbicsoftware/VaadinSampleTracking](https://github.com/qbicsoftware/VaadinSampleTracking)
@@ -2348,7 +2363,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 156. vaccine-designer-portlet
+### 157. vaccine-designer-portlet
 A portlet for the interactive design of individualized vaccines
 
 GitHub link: [https://github.com/qbicsoftware/vaccine-designer-portlet](https://github.com/qbicsoftware/vaccine-designer-portlet)
@@ -2362,7 +2377,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 157. variant-annotation-workflow
+### 158. variant-annotation-workflow
 Workflow scripts of the variant annotation workflow
 
 GitHub link: [https://github.com/qbicsoftware/variant-annotation-workflow](https://github.com/qbicsoftware/variant-annotation-workflow)
@@ -2376,7 +2391,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 158. variantcalling
+### 159. variantcalling
 Repository for variant calling pipeline using FreeBayes
 
 GitHub link: [https://github.com/qbicsoftware/variantcalling](https://github.com/qbicsoftware/variantcalling)
@@ -2390,7 +2405,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 159. vmcall
+### 160. vmcall
 No description available for vmcall.
 
 GitHub link: [https://github.com/qbicsoftware/vmcall](https://github.com/qbicsoftware/vmcall)
@@ -2404,7 +2419,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 160. voronoi-treemap-cli
+### 161. voronoi-treemap-cli
 No description available for voronoi-treemap-cli.
 
 GitHub link: [https://github.com/qbicsoftware/voronoi-treemap-cli](https://github.com/qbicsoftware/voronoi-treemap-cli)
@@ -2418,7 +2433,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 161. voronoi-treemap-portlet
+### 162. voronoi-treemap-portlet
  Visualization of hierarchical annotation data with Voronoi-Treemaps using the Vaadin framwork
 
 GitHub link: [https://github.com/qbicsoftware/voronoi-treemap-portlet](https://github.com/qbicsoftware/voronoi-treemap-portlet)
@@ -2432,7 +2447,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 162. voronoi-treemaps-tsv-creator
+### 163. voronoi-treemaps-tsv-creator
 Converts a table like derived from DAVID with columns like "Term", "Genes" and a table with the Gene/Protein names plus data column (Expression/Ratio/p-value, etc) into a tsv file that can be processed for Voronoi-Treemap creation
 
 GitHub link: [https://github.com/qbicsoftware/voronoi-treemaps-tsv-creator](https://github.com/qbicsoftware/voronoi-treemaps-tsv-creator)
@@ -2446,7 +2461,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 163. workflow-sarek
+### 164. workflow-sarek
 Detect germline or somatic variants from normal or tumour/normal whole-genome or targeted sequencing. This is an archived version for a paper, please use https://github.com/nf-core/sarek for new projects!
 
 GitHub link: [https://github.com/qbicsoftware/workflow-sarek](https://github.com/qbicsoftware/workflow-sarek)
@@ -2460,7 +2475,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 164. workflow-submission-schema
+### 165. workflow-submission-schema
 A humble try to create a JSON scheme for workflow submission requests.
 
 GitHub link: [https://github.com/qbicsoftware/workflow-submission-schema](https://github.com/qbicsoftware/workflow-submission-schema)
@@ -2474,7 +2489,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 165. workflow_api
+### 166. workflow_api
 No description available for workflow_api.
 
 GitHub link: [https://github.com/qbicsoftware/workflow_api](https://github.com/qbicsoftware/workflow_api)
@@ -2488,7 +2503,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 166. xml-manager-lib
+### 167. xml-manager-lib
 Reading and writing of specific openBIS xml properties
 
 GitHub link: [https://github.com/qbicsoftware/xml-manager-lib](https://github.com/qbicsoftware/xml-manager-lib)
@@ -2505,4 +2520,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 31 October 2019, 3:56 hrs.</sub>
+<sub>Last update: 1 November 2019, 3:56 hrs.</sub>
