@@ -373,7 +373,7 @@ GitHub link: [https://github.com/qbicsoftware/data-model-lib](https://github.com
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/data-model-lib/reports/development/index.html)
 
 
 #### Release reports
@@ -2025,7 +2025,7 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 ### 132. RepoWiz
-No description available for RepoWiz.
+Repository wizard RepoWiz helps to make your data publicly available
 
 GitHub link: [https://github.com/qbicsoftware/RepoWiz](https://github.com/qbicsoftware/RepoWiz)
 
@@ -2658,4 +2658,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 13 May 2020, 2:19 hrs.</sub>
+<sub>Last update: 14 May 2020, 2:20 hrs.</sub>
