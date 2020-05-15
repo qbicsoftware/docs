@@ -1272,7 +1272,7 @@ GitHub link: [https://github.com/qbicsoftware/openbis-client-lib](https://github
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/openbis-client-lib/reports/development/index.html)
 
 
 #### Release reports
@@ -2658,4 +2658,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 14 May 2020, 2:20 hrs.</sub>
+<sub>Last update: 15 May 2020, 2:21 hrs.</sub>
