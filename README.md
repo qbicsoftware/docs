@@ -1111,7 +1111,7 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 ### 67. nanopore-parser-cli
-A Client for running nanopore-parser. nanopore-parser-cli is designed to interoperate with current QBiC Server Infrastructure
+A command-line application for validating Oxford Nanopore folder structures.
 
 GitHub link: [https://github.com/qbicsoftware/nanopore-parser-cli](https://github.com/qbicsoftware/nanopore-parser-cli)
 
@@ -2688,4 +2688,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 25 May 2020, 2:28 hrs.</sub>
+<sub>Last update: 26 May 2020, 2:28 hrs.</sub>
