@@ -382,6 +382,7 @@ GitHub link: [https://github.com/qbicsoftware/data-model-lib](https://github.com
   - [1.8.1](https://qbicsoftware.github.com/data-model-lib/reports/1.8.1/index.html)
   - [1.8.2](https://qbicsoftware.github.com/data-model-lib/reports/1.8.2/index.html)
   - [1.8.3](https://qbicsoftware.github.com/data-model-lib/reports/1.8.3/index.html)
+  - [1.9.0](https://qbicsoftware.github.com/data-model-lib/reports/1.9.0/index.html)
 
 
 ### 15. datenschutzkonzept_qbic
@@ -2676,4 +2677,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 8 July 2020, 2:52 hrs.</sub>
+<sub>Last update: 9 July 2020, 2:53 hrs.</sub>
