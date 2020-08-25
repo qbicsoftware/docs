@@ -1291,7 +1291,7 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 ### 79. oncostore-proto-project
-A variant store prototype which provides access to oncology-related variant information.  
+The Variantstore is a Java/Groovy-based service application implemented using the Micronaut framework and enables storage and access to information on genomic variants and metadata from a connected database via a RESTful API.
 
 GitHub link: [https://github.com/qbicsoftware/oncostore-proto-project](https://github.com/qbicsoftware/oncostore-proto-project)
 
@@ -2711,4 +2711,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 24 August 2020, 3:16 hrs.</sub>
+<sub>Last update: 25 August 2020, 3:16 hrs.</sub>
