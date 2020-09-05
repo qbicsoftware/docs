@@ -748,7 +748,7 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 ### 40. html2pdf-cli
-html2pdf. A proof of concept HTML to PDF conversion tool.
+html2pdf. A proof-of-concept HTML to PDF conversion tool.
 
 GitHub link: [https://github.com/qbicsoftware/html2pdf-cli](https://github.com/qbicsoftware/html2pdf-cli)
 
@@ -2773,4 +2773,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 4 September 2020, 3:20 hrs.</sub>
+<sub>Last update: 5 September 2020, 3:20 hrs.</sub>
