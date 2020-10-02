@@ -633,6 +633,7 @@ GitHub link: [https://github.com/qbicsoftware/openbis-client-lib](https://github
 #### Release reports
   - [1.3.1](https://qbicsoftware.github.com/openbis-client-lib/reports/1.3.1/index.html)
   - [1.4.0](https://qbicsoftware.github.com/openbis-client-lib/reports/1.4.0/index.html)
+  - [1.4.1](https://qbicsoftware.github.com/openbis-client-lib/reports/1.4.1/index.html)
 
 
 ### 39. openbis_connection_tester
@@ -1230,4 +1231,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 1 October 2020, 3:33 hrs.</sub>
+<sub>Last update: 2 October 2020, 3:34 hrs.</sub>
