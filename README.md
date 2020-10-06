@@ -79,12 +79,13 @@ Project reports are generated automatically during builds, while this summary is
   - [72. statistics-cli](#72-statistics-cli)
   - [73. statistics-plugin](#73-statistics-plugin)
   - [74. statistics-portlet](#74-statistics-portlet)
-  - [75. ukt-diagnostics-id-portlet](#75-ukt-diagnostics-id-portlet)
-  - [76. user-db-portlet](#76-user-db-portlet)
-  - [77. vaccine-designer-portlet](#77-vaccine-designer-portlet)
-  - [78. workflow-dashboard-portlet](#78-workflow-dashboard-portlet)
-  - [79. workflow-sarek](#79-workflow-sarek)
-  - [80. xml-manager-lib](#80-xml-manager-lib)
+  - [75. trello-script](#75-trello-script)
+  - [76. ukt-diagnostics-id-portlet](#76-ukt-diagnostics-id-portlet)
+  - [77. user-db-portlet](#77-user-db-portlet)
+  - [78. vaccine-designer-portlet](#78-vaccine-designer-portlet)
+  - [79. workflow-dashboard-portlet](#79-workflow-dashboard-portlet)
+  - [80. workflow-sarek](#80-workflow-sarek)
+  - [81. xml-manager-lib](#81-xml-manager-lib)
 
 
 ### 1. attachi-cli
@@ -1144,7 +1145,21 @@ GitHub link: [https://github.com/qbicsoftware/statistics-portlet](https://github
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 75. ukt-diagnostics-id-portlet
+### 75. trello-script
+This repository holds a collection of scripts, which use the Trello API to easily access the information stored on a Trello Board
+
+GitHub link: [https://github.com/qbicsoftware/trello-script](https://github.com/qbicsoftware/trello-script)
+
+
+#### SNAPSHOT reports
+We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+
+
+#### Release reports
+We're sorry, there are no available release reports for this project. Come back soon!
+
+
+### 76. ukt-diagnostics-id-portlet
 A portlet that generates patient and sample IDs per request for UKT diagnostics purposes
 
 GitHub link: [https://github.com/qbicsoftware/ukt-diagnostics-id-portlet](https://github.com/qbicsoftware/ukt-diagnostics-id-portlet)
@@ -1158,7 +1173,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 76. user-db-portlet
+### 77. user-db-portlet
 User DB Tools Portlet enables users to add people and affiliations to the SQL user database.
 
 GitHub link: [https://github.com/qbicsoftware/user-db-portlet](https://github.com/qbicsoftware/user-db-portlet)
@@ -1172,7 +1187,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 77. vaccine-designer-portlet
+### 78. vaccine-designer-portlet
 A portlet for the interactive design of individualized vaccines
 
 GitHub link: [https://github.com/qbicsoftware/vaccine-designer-portlet](https://github.com/qbicsoftware/vaccine-designer-portlet)
@@ -1186,7 +1201,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 78. workflow-dashboard-portlet
+### 79. workflow-dashboard-portlet
 Live visualisation of Nextflow workflows in qPortal
 
 GitHub link: [https://github.com/qbicsoftware/workflow-dashboard-portlet](https://github.com/qbicsoftware/workflow-dashboard-portlet)
@@ -1200,7 +1215,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 79. workflow-sarek
+### 80. workflow-sarek
 This is an archived version for a paper, please use https://github.com/nf-core/sarek for new projects!
 
 GitHub link: [https://github.com/qbicsoftware/workflow-sarek](https://github.com/qbicsoftware/workflow-sarek)
@@ -1214,7 +1229,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 80. xml-manager-lib
+### 81. xml-manager-lib
 Reading and writing of specific openBIS xml properties
 
 GitHub link: [https://github.com/qbicsoftware/xml-manager-lib](https://github.com/qbicsoftware/xml-manager-lib)
@@ -1231,4 +1246,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 5 October 2020, 3:36 hrs.</sub>
+<sub>Last update: 6 October 2020, 3:36 hrs.</sub>
