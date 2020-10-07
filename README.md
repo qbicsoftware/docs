@@ -580,7 +580,7 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 ### 35. omero-portlet
-Java client for the OMERO server
+Vaadin portlet for qPortal that displays image (meta)data.
 
 GitHub link: [https://github.com/qbicsoftware/omero-portlet](https://github.com/qbicsoftware/omero-portlet)
 
@@ -1246,4 +1246,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 6 October 2020, 3:36 hrs.</sub>
+<sub>Last update: 7 October 2020, 3:37 hrs.</sub>
