@@ -226,7 +226,7 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 ### 10. etl-scripts
-openbis etl scripts
+ETL scripts written in Jython 2.7 for openBIS dropboxes.
 
 GitHub link: [https://github.com/qbicsoftware/etl-scripts](https://github.com/qbicsoftware/etl-scripts)
 
@@ -1232,4 +1232,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 14 October 2020, 3:41 hrs.</sub>
+<sub>Last update: 15 October 2020, 3:41 hrs.</sub>
