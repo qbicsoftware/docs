@@ -67,27 +67,28 @@ Project reports are generated automatically during builds, while this summary is
   - [60. qube-cli](#60-qube-cli)
   - [61. r-container-lib](#61-r-container-lib)
   - [62. r-container-template](#62-r-container-template)
-  - [63. repowiz-cli](#63-repowiz-cli)
-  - [64. rmageddon-cli](#64-rmageddon-cli)
-  - [65. sample-status-updater-cli](#65-sample-status-updater-cli)
-  - [66. sample-tracking-helper-lib](#66-sample-tracking-helper-lib)
-  - [67. sample-tracking-service](#67-sample-tracking-service)
-  - [68. sample-tracking-status-portlet](#68-sample-tracking-status-portlet)
-  - [69. sample-tracking-update-portlet](#69-sample-tracking-update-portlet)
-  - [70. sarek-starter-cli](#70-sarek-starter-cli)
-  - [71. scark-cli](#71-scark-cli)
-  - [72. services-testing-portlet](#72-services-testing-portlet)
-  - [73. spark-service](#73-spark-service)
-  - [74. statistics-cli](#74-statistics-cli)
-  - [75. statistics-plugin](#75-statistics-plugin)
-  - [76. statistics-portlet](#76-statistics-portlet)
-  - [77. trello-script](#77-trello-script)
-  - [78. ukt-diagnostics-id-portlet](#78-ukt-diagnostics-id-portlet)
-  - [79. user-db-portlet](#79-user-db-portlet)
-  - [80. vaccine-designer-portlet](#80-vaccine-designer-portlet)
-  - [81. workflow-dashboard-portlet](#81-workflow-dashboard-portlet)
-  - [82. workflow-sarek](#82-workflow-sarek)
-  - [83. xml-manager-lib](#83-xml-manager-lib)
+  - [63. reporting-scripts](#63-reporting-scripts)
+  - [64. repowiz-cli](#64-repowiz-cli)
+  - [65. rmageddon-cli](#65-rmageddon-cli)
+  - [66. sample-status-updater-cli](#66-sample-status-updater-cli)
+  - [67. sample-tracking-helper-lib](#67-sample-tracking-helper-lib)
+  - [68. sample-tracking-service](#68-sample-tracking-service)
+  - [69. sample-tracking-status-portlet](#69-sample-tracking-status-portlet)
+  - [70. sample-tracking-update-portlet](#70-sample-tracking-update-portlet)
+  - [71. sarek-starter-cli](#71-sarek-starter-cli)
+  - [72. scark-cli](#72-scark-cli)
+  - [73. services-testing-portlet](#73-services-testing-portlet)
+  - [74. spark-service](#74-spark-service)
+  - [75. statistics-cli](#75-statistics-cli)
+  - [76. statistics-plugin](#76-statistics-plugin)
+  - [77. statistics-portlet](#77-statistics-portlet)
+  - [78. trello-script](#78-trello-script)
+  - [79. ukt-diagnostics-id-portlet](#79-ukt-diagnostics-id-portlet)
+  - [80. user-db-portlet](#80-user-db-portlet)
+  - [81. vaccine-designer-portlet](#81-vaccine-designer-portlet)
+  - [82. workflow-dashboard-portlet](#82-workflow-dashboard-portlet)
+  - [83. workflow-sarek](#83-workflow-sarek)
+  - [84. xml-manager-lib](#84-xml-manager-lib)
 
 
 ### 1. attachi-cli
@@ -979,7 +980,21 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 63. repowiz-cli
+### 63. reporting-scripts
+No description available for reporting-scripts.
+
+GitHub link: [https://github.com/qbicsoftware/reporting-scripts](https://github.com/qbicsoftware/reporting-scripts)
+
+
+#### SNAPSHOT reports
+We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+
+
+#### Release reports
+We're sorry, there are no available release reports for this project. Come back soon!
+
+
+### 64. repowiz-cli
 Repository wizard RepoWiz helps to make your data publicly available
 
 GitHub link: [https://github.com/qbicsoftware/repowiz-cli](https://github.com/qbicsoftware/repowiz-cli)
@@ -993,7 +1008,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 64. rmageddon-cli
+### 65. rmageddon-cli
 A small linting command line tool for R container evaluation
 
 GitHub link: [https://github.com/qbicsoftware/rmageddon-cli](https://github.com/qbicsoftware/rmageddon-cli)
@@ -1007,7 +1022,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 65. sample-status-updater-cli
+### 66. sample-status-updater-cli
 Performs post registration tasks after samples have been registered in openBIS, using the openBIS API. To be used as a cron job.
 
 GitHub link: [https://github.com/qbicsoftware/sample-status-updater-cli](https://github.com/qbicsoftware/sample-status-updater-cli)
@@ -1021,7 +1036,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 66. sample-tracking-helper-lib
+### 67. sample-tracking-helper-lib
 An easy to use interface providing sample tracking update functions for ETL scripts
 
 GitHub link: [https://github.com/qbicsoftware/sample-tracking-helper-lib](https://github.com/qbicsoftware/sample-tracking-helper-lib)
@@ -1035,7 +1050,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 67. sample-tracking-service
+### 68. sample-tracking-service
 Service that implements a sample tracking interface.
 
 GitHub link: [https://github.com/qbicsoftware/sample-tracking-service](https://github.com/qbicsoftware/sample-tracking-service)
@@ -1049,7 +1064,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 68. sample-tracking-status-portlet
+### 69. sample-tracking-status-portlet
 Portlet to query satus, location and general information of samples
 
 GitHub link: [https://github.com/qbicsoftware/sample-tracking-status-portlet](https://github.com/qbicsoftware/sample-tracking-status-portlet)
@@ -1063,7 +1078,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 69. sample-tracking-update-portlet
+### 70. sample-tracking-update-portlet
 Portlet to update sample status, location and general information
 
 GitHub link: [https://github.com/qbicsoftware/sample-tracking-update-portlet](https://github.com/qbicsoftware/sample-tracking-update-portlet)
@@ -1077,7 +1092,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 70. sarek-starter-cli
+### 71. sarek-starter-cli
 Various python scripts for bioinformatics data analysis and pre-processing
 
 GitHub link: [https://github.com/qbicsoftware/sarek-starter-cli](https://github.com/qbicsoftware/sarek-starter-cli)
@@ -1091,7 +1106,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 71. scark-cli
+### 72. scark-cli
 No description available for scark-cli.
 
 GitHub link: [https://github.com/qbicsoftware/scark-cli](https://github.com/qbicsoftware/scark-cli)
@@ -1106,7 +1121,7 @@ GitHub link: [https://github.com/qbicsoftware/scark-cli](https://github.com/qbic
   - [1.1.0](https://qbicsoftware.github.com/scark-cli/reports/1.1.0/index.html)
 
 
-### 72. services-testing-portlet
+### 73. services-testing-portlet
 A portlet to test services related libraries
 
 GitHub link: [https://github.com/qbicsoftware/services-testing-portlet](https://github.com/qbicsoftware/services-testing-portlet)
@@ -1120,7 +1135,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 73. spark-service
+### 74. spark-service
 No description available for spark-service.
 
 GitHub link: [https://github.com/qbicsoftware/spark-service](https://github.com/qbicsoftware/spark-service)
@@ -1134,7 +1149,7 @@ GitHub link: [https://github.com/qbicsoftware/spark-service](https://github.com/
   - [1.0.0](https://qbicsoftware.github.com/spark-service/reports/1.0.0/index.html)
 
 
-### 74. statistics-cli
+### 75. statistics-cli
 This tools is responsible for data retrieval and formatting, in order to visualize data on our homepage.
 
 GitHub link: [https://github.com/qbicsoftware/statistics-cli](https://github.com/qbicsoftware/statistics-cli)
@@ -1148,7 +1163,7 @@ GitHub link: [https://github.com/qbicsoftware/statistics-cli](https://github.com
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 75. statistics-plugin
+### 76. statistics-plugin
 This repo contains shared classes between the qbic-statistics portlet and the statistics-data-retrieval repo
 
 GitHub link: [https://github.com/qbicsoftware/statistics-plugin](https://github.com/qbicsoftware/statistics-plugin)
@@ -1162,7 +1177,7 @@ GitHub link: [https://github.com/qbicsoftware/statistics-plugin](https://github.
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 76. statistics-portlet
+### 77. statistics-portlet
 No description available for statistics-portlet.
 
 GitHub link: [https://github.com/qbicsoftware/statistics-portlet](https://github.com/qbicsoftware/statistics-portlet)
@@ -1176,7 +1191,7 @@ GitHub link: [https://github.com/qbicsoftware/statistics-portlet](https://github
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 77. trello-script
+### 78. trello-script
 This repository holds a collection of scripts, which use the Trello API to easily access the information stored on a Trello Board
 
 GitHub link: [https://github.com/qbicsoftware/trello-script](https://github.com/qbicsoftware/trello-script)
@@ -1190,7 +1205,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 78. ukt-diagnostics-id-portlet
+### 79. ukt-diagnostics-id-portlet
 A portlet that generates patient and sample IDs per request for UKT diagnostics purposes
 
 GitHub link: [https://github.com/qbicsoftware/ukt-diagnostics-id-portlet](https://github.com/qbicsoftware/ukt-diagnostics-id-portlet)
@@ -1204,7 +1219,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 79. user-db-portlet
+### 80. user-db-portlet
 User DB Tools Portlet enables users to add people and affiliations to the SQL user database.
 
 GitHub link: [https://github.com/qbicsoftware/user-db-portlet](https://github.com/qbicsoftware/user-db-portlet)
@@ -1218,7 +1233,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 80. vaccine-designer-portlet
+### 81. vaccine-designer-portlet
 A portlet for the interactive design of individualized vaccines
 
 GitHub link: [https://github.com/qbicsoftware/vaccine-designer-portlet](https://github.com/qbicsoftware/vaccine-designer-portlet)
@@ -1232,7 +1247,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 81. workflow-dashboard-portlet
+### 82. workflow-dashboard-portlet
 Live visualisation of Nextflow workflows in qPortal
 
 GitHub link: [https://github.com/qbicsoftware/workflow-dashboard-portlet](https://github.com/qbicsoftware/workflow-dashboard-portlet)
@@ -1246,7 +1261,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 82. workflow-sarek
+### 83. workflow-sarek
 This is an archived version for a paper, please use https://github.com/nf-core/sarek for new projects!
 
 GitHub link: [https://github.com/qbicsoftware/workflow-sarek](https://github.com/qbicsoftware/workflow-sarek)
@@ -1260,7 +1275,7 @@ We're sorry, there are no available SNAPSHOT reports for this project. Come back
 We're sorry, there are no available release reports for this project. Come back soon!
 
 
-### 83. xml-manager-lib
+### 84. xml-manager-lib
 Reading and writing of specific openBIS xml properties
 
 GitHub link: [https://github.com/qbicsoftware/xml-manager-lib](https://github.com/qbicsoftware/xml-manager-lib)
@@ -1277,4 +1292,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 21 October 2020, 3:44 hrs.</sub>
+<sub>Last update: 22 October 2020, 3:45 hrs.</sub>
