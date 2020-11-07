@@ -917,7 +917,7 @@ GitHub link: [https://github.com/qbicsoftware/qoffer-2-portlet](https://github.c
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/qoffer-2-portlet/reports/development/index.html)
 
 
 #### Release reports
@@ -1292,4 +1292,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 6 November 2020, 3:52 hrs.</sub>
+<sub>Last update: 7 November 2020, 3:53 hrs.</sub>
