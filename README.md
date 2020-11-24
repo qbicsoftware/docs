@@ -176,6 +176,7 @@ GitHub link: [https://github.com/qbicsoftware/data-model-lib](https://github.com
   - [1.10.0](https://qbicsoftware.github.com/data-model-lib/reports/1.10.0/index.html)
   - [1.10.1](https://qbicsoftware.github.com/data-model-lib/reports/1.10.1/index.html)
   - [1.11.0](https://qbicsoftware.github.com/data-model-lib/reports/1.11.0/index.html)
+  - [1.12.0](https://qbicsoftware.github.com/data-model-lib/reports/1.12.0/index.html)
   - [1.8.0](https://qbicsoftware.github.com/data-model-lib/reports/1.8.0/index.html)
   - [1.8.1](https://qbicsoftware.github.com/data-model-lib/reports/1.8.1/index.html)
   - [1.8.2](https://qbicsoftware.github.com/data-model-lib/reports/1.8.2/index.html)
@@ -1292,4 +1293,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 23 November 2020, 4:00 hrs.</sub>
+<sub>Last update: 24 November 2020, 4:01 hrs.</sub>
