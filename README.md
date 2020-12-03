@@ -806,11 +806,11 @@ GitHub link: [https://github.com/qbicsoftware/projectwizard-portlet](https://git
 
 
 #### SNAPSHOT reports
-We're sorry, there are no available SNAPSHOT reports for this project. Come back soon!
+[Latest SNAPSHOT report](https://qbicsoftware.github.com/projectwizard-portlet/reports/development/index.html)
 
 
 #### Release reports
-We're sorry, there are no available release reports for this project. Come back soon!
+  - [1.10.0](https://qbicsoftware.github.com/projectwizard-portlet/reports/1.10.0/index.html)
 
 
 ### 51. python-data-lib
@@ -1293,4 +1293,4 @@ We're sorry, there are no available release reports for this project. Come back 
 
 
 
-<sub>Last update: 2 December 2020, 4:07 hrs.</sub>
+<sub>Last update: 3 December 2020, 4:07 hrs.</sub>
